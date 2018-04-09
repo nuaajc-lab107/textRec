@@ -17,8 +17,8 @@
       <file leaf-file-name="test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="82" column="46" lean-forward="true" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+            <state relative-caret-position="1315">
+              <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -202,33 +202,43 @@
       <workItem from="1523291421971" duration="69000" />
       <workItem from="1523291511704" duration="2884000" />
       <workItem from="1523294926654" duration="6180000" />
-      <workItem from="1523301708193" duration="7352000" />
+      <workItem from="1523301708193" duration="8767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20672000" />
+    <option name="totallyTimeSpent" value="22087000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297491" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3297491" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3297491" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297491" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297491" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297491" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.25788197" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -240,7 +250,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,8 +312,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="82" column="46" lean-forward="true" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+        <state relative-caret-position="1315">
+          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
