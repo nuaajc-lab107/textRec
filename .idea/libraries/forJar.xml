@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="forJar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../forJar/out/artifacts/forJar/forJar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

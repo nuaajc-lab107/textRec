@@ -11,5 +11,6 @@
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="poi-bin-3" level="project" />
     <orderEntry type="library" name="opencv-340" level="project" />
+    <orderEntry type="library" name="forJar" level="project" />
   </component>
 </module>

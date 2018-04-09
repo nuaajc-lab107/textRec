@@ -76,20 +76,23 @@ public class test{
                 Rectangle rect = new Rectangle(600, 80);
                 String result = instance.doOCR(mat2BI(dst), rect);
 
-                String str1 = result.replace(" 二 ", ":");
-                String str2 = str1.replace('…', '5');
+                String str = result.replace(" 二 ", ":");
+                //String str2 = str1.replace('…', '5');
 
-                System.out.print(str2);
+                System.out.print(str);
 
-                String num, name;
+                String num, name, numlast, namelast;
 
-                if (str2.contains(":")) {
-                    int stnum = str2.indexOf(':');
-                    int ennum = str2.indexOf('\n');
-                    int stname = str2.indexOf(':', ennum);
+                if (str.contains(":")) {
+                    int stnum = str.indexOf(':');
+                    int ennum = str.indexOf('\n');
+                    int stname = str.indexOf(':', ennum);
 
-                    num = str2.substring(stnum + 1, ennum);
-                    name = str2.substring(stname + 1);
+                    num = str.substring(stnum + 1, ennum);
+                    name = str.substring(stname + 1);
+
+                    numlast = fix.fixnum(num);
+                    namelast = fix.fixname(name);
 
             /*
             System.out.println(stnum);
@@ -97,19 +100,19 @@ public class test{
             System.out.print(stname);
             */
 
-                    System.out.println(num);
-                    System.out.println(name);
+                    System.out.println(numlast);
+                    System.out.println(namelast);
                 } else {
-                    num = "error! picture wrong";
-                    name = "error! picture wrong";
+                    numlast = "error! picture wrong";
+                    namelast = "error! picture wrong";
                 }
 
                 FileOutputStream out = new FileOutputStream(filepath);
                 HSSFRow row = sheet.createRow(i);
                 HSSFCell NUM = row.createCell(0);
-                NUM.setCellValue(num);
+                NUM.setCellValue(numlast);
                 HSSFCell NAME = row.createCell(1);
-                NAME.setCellValue(name);
+                NAME.setCellValue(namelast);
                 workbook.write(out);
                 out.close();
 
