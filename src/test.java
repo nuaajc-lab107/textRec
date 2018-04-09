@@ -18,7 +18,7 @@ import javax.imageio.ImageIO;
 
 public class test{
 
-    static String imageFile ="C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\3";
+    static String imageFile ="C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\16";
 
     public static void main(String[] args){
 
@@ -60,12 +60,15 @@ public class test{
 
             System.out.print(str2);
 
-            int stnum = str2.indexOf(':');
-            int ennum = str2.indexOf('\n');
-            int stname = str2.indexOf(':',ennum);
+            String num,name;
 
-            String num = str2.substring(stnum+1,ennum);
-            String name = str2.substring(stname+1);
+            if (str2.contains(":")) {
+                int stnum = str2.indexOf(':');
+                int ennum = str2.indexOf('\n');
+                int stname = str2.indexOf(':', ennum);
+
+                num = str2.substring(stnum + 1, ennum);
+                name = str2.substring(stname + 1);
 
             /*
             System.out.println(stnum);
@@ -73,8 +76,12 @@ public class test{
             System.out.print(stname);
             */
 
-            System.out.println(num);
-            System.out.println(name);
+                System.out.println(num);
+                System.out.println(name);
+            }else {
+                num = "error! picture wrong";
+                name = "error! picture wrong";
+            }
 
             FileOutputStream out =new FileOutputStream(filepath);
             HSSFRow row = sheet.createRow(1);
