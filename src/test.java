@@ -14,7 +14,7 @@ import javax.imageio.ImageIO;
 
 public class test{
 
-    static String imageFile ="C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\5";
+    static String imageFile ="C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\18";
 
     public static void main(String[] args){
 
@@ -35,9 +35,10 @@ public class test{
             }
 
             Mat dst = new Mat();
-            Imgproc.threshold(src,dst,100.0,200.0,Imgproc.THRESH_BINARY);
+            Imgproc.threshold(src,dst,110.0,225.0,Imgproc.THRESH_BINARY);
+            Imgcodecs.imwrite("D:\\test\\result.jpg",dst);
 
-            Rectangle rect = new Rectangle(600,100);
+            Rectangle rect = new Rectangle(600,80);
             String result = instance.doOCR(mat2BI(dst),rect);
             System.out.print(result);
 /*
