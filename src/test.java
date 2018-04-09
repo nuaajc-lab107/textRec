@@ -77,7 +77,6 @@ public class test{
                 String result = instance.doOCR(mat2BI(dst), rect);
 
                 String str = result.replace(" 二 ", ":");
-                //String str2 = str1.replace('…', '5');
 
                 System.out.print(str);
 
