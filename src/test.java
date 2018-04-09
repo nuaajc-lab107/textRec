@@ -1,12 +1,16 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import net.sourceforge.tess4j.*;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
@@ -14,13 +18,23 @@ import javax.imageio.ImageIO;
 
 public class test{
 
-    static String imageFile ="C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\18";
+    static String imageFile ="C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\3";
 
     public static void main(String[] args){
 
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
         String filepath = "D:\\test\\test.xls";
+
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("test");
+        sheet.setColumnWidth(0, 30 * 256);
+        sheet.setColumnWidth(1, 30 * 256);
+        HSSFRow osisjdjs = sheet.createRow(0);
+        HSSFCell numtop = osisjdjs.createCell(0);
+        numtop.setCellValue("企业注册号");
+        HSSFCell nametop = osisjdjs.createCell(1);
+        nametop.setCellValue("企业名称");
 
 
         try {
@@ -40,17 +54,37 @@ public class test{
 
             Rectangle rect = new Rectangle(600,80);
             String result = instance.doOCR(mat2BI(dst),rect);
-            System.out.print(result);
-/*
-            HSSFWorkbook workbook = new HSSFWorkbook();
-            HSSFSheet sheet = workbook.createSheet("test");
+
+            String str1 = result.replace(" 二 ",":");
+            String str2 = str1.replace('…','5');
+
+            System.out.print(str2);
+
+            int stnum = str2.indexOf(':');
+            int ennum = str2.indexOf('\n');
+            int stname = str2.indexOf(':',ennum);
+
+            String num = str2.substring(stnum+1,ennum);
+            String name = str2.substring(stname+1);
+
+            /*
+            System.out.println(stnum);
+            System.out.println(ennum);
+            System.out.print(stname);
+            */
+
+            System.out.println(num);
+            System.out.println(name);
+
             FileOutputStream out =new FileOutputStream(filepath);
-            HSSFRow row = sheet.createRow(0);
-            HSSFCell cell = row.createCell(0);
-            cell.setCellValue(result);
+            HSSFRow row = sheet.createRow(1);
+            HSSFCell NUM = row.createCell(0);
+            NUM.setCellValue(num);
+            HSSFCell NAME = row.createCell(1);
+            NAME.setCellValue(name);
             workbook.write(out);
             out.close();
-            */
+
         }catch (TesseractException e){
             System.err.print(e.getMessage());
         } /*catch (FileNotFoundException e) {
