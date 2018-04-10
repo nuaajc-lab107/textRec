@@ -36,7 +36,7 @@ public class test{
         HSSFCell nametop = osisjdjs.createCell(1);
         nametop.setCellValue("企业名称");
 
-        for (int i=1; i<15; i++) {
+        for (int i=1; i<50; i++) {
 
             String imageFile = "C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\" + i;
 
@@ -71,24 +71,25 @@ public class test{
 
                 Mat dst = new Mat();
                 Imgproc.threshold(src, dst, 110.0, 225.0, Imgproc.THRESH_BINARY);
-                Imgcodecs.imwrite("D:\\test\\result.jpg", dst);
+                //Imgcodecs.imwrite("D:\\test\\result.jpg", dst);
 
                 Rectangle rect = new Rectangle(600, 80);
                 String result = instance.doOCR(mat2BI(dst), rect);
 
                 String str = result.replace(" 二 ", ":");
+                String stro = str.replace("二 ",":");
 
-                System.out.print(str);
+                System.out.print(stro);
 
                 String num, name, numlast, namelast;
 
-                if (str.contains(":")) {
-                    int stnum = str.indexOf(':');
-                    int ennum = str.indexOf('\n');
-                    int stname = str.indexOf(':', ennum);
+                if (stro.contains(":")) {
+                    int stnum = stro.indexOf(':');
+                    int ennum = stro.indexOf('\n');
+                    int stname = stro.indexOf(':', ennum);
 
-                    num = str.substring(stnum + 1, ennum);
-                    name = str.substring(stname + 1);
+                    num = stro.substring(stnum + 1, ennum);
+                    name = stro.substring(stname + 1);
 
                     numlast = fix.fixnum(num);
                     namelast = fix.fixname(name);
