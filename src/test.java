@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,12 +19,19 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 
-public class test{
+public class test extends JFrame implements ActionListener {
 
+    JButton btnOpen = new JButton("加载");
+    JButton btnStart = new JButton("开始");
+    JTextArea txtLog = new JTextArea();
+    JFileChooser chooser = new JFileChooser();
 
-    public static void main(String[] args){
+    int[] exp = new int[10];
+    int j = 0;
 
+    private void start() {
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
         String filepath = "D:\\test\\test.xls";
@@ -39,7 +48,7 @@ public class test{
 
         for (int i=1; i<50; i++) {
 
-            String imageFile = "C:\\Users\\Aye10032\\Downloads\\1_20180208150251_x4hzz\\" + i;
+            String imageFile = chooser.getSelectedFile()+"\\" + i;
 
             try {
                 BufferedImage bufferedImage;
@@ -77,6 +86,7 @@ public class test{
                 float height=src.height();
                 Imgproc.resize(dst1,dst,new Size(width/2,height/2));*/
 
+                this.txtLog.append("done");
                 System.out.println("Done");
 
                 /*Mat dst1 = new Mat();
@@ -90,7 +100,7 @@ public class test{
 
                 Imgcodecs.imwrite("D:\\test\\"+i+".jpg",dst);*/
 
-                Rectangle rect = new Rectangle(0,40,600, 40);
+                Rectangle rect = new Rectangle(0,0,600, 80);
                 String result = instance.doOCR(mat2BI(dst), rect);
 
                 String str = result.replace(" 二 ", ":");
@@ -119,9 +129,13 @@ public class test{
 
                     System.out.println(numlast);
                     System.out.println(namelast);
+                    this.txtLog.append(numlast+"00\n");
                 } else {
                     numlast = "error! picture wrong";
                     namelast = "error! picture wrong";
+
+                    exp[j]=i;
+                    j++;
                 }
 
                 FileOutputStream out = new FileOutputStream(filepath);
@@ -144,6 +158,10 @@ public class test{
             }
         }
 
+        for (int i = 0; i < exp.length; i++) {
+            if (exp[i]!=0)
+                txtLog.append(exp[i]+" ");
+        }
     }
 
     private static BufferedImage mat2BI(Mat mat){
@@ -167,6 +185,53 @@ public class test{
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source==btnOpen){
+            int result = chooser.showOpenDialog(this);
+            if (result==JFileChooser.APPROVE_OPTION);
+            txtLog.append("File:"+chooser.getSelectedFile()+"is open");
+        }
+        if (source== btnStart){
+            start();
+        }
+    }
+
+    public test(){
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        setTitle("老子又不是前端，做个屁的界面美化");
+        JToolBar toolBar = new JToolBar();
+        toolBar.add(btnOpen);
+        toolBar.add(btnStart);
+        btnOpen.addActionListener(this);
+        btnStart.addActionListener(this);
+        Container c = this.getContentPane();
+        c.add(toolBar,BorderLayout.NORTH);
+        c.add(new JScrollPane(txtLog),BorderLayout.CENTER);
+        setBounds(500,400,700,500);
+        chooser.setCurrentDirectory(new File("D:\\"));
+    }
+
+    public static void main(String[] args){
+        try {
+            String lookAndFeel ="com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+            UIManager.setLookAndFeel(lookAndFeel);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        new test().show();
+
+    }
 }
 
 
