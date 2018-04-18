@@ -12,6 +12,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
@@ -54,7 +55,6 @@ public class test{
 
                     ImageIO.write(newBufferedImage, "jpg", new File(imageFile + ".jpg"));
 
-                    System.out.println("Done");
 
                 } catch (IOException e) {
 
@@ -63,17 +63,34 @@ public class test{
                 }
 
                 System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-                Mat src = Imgcodecs.imread(imageFile + ".jpg", Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
+                Mat src = Imgcodecs.imread(imageFile + ".jpg",0);
 
                 if (src.empty()) {
                     throw new Exception("no file");
                 }
 
                 Mat dst = new Mat();
-                Imgproc.threshold(src, dst, 110.0, 225.0, Imgproc.THRESH_BINARY);
-                //Imgcodecs.imwrite("D:\\test\\result.jpg", dst);
+                Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
 
-                Rectangle rect = new Rectangle(600, 80);
+                /*Mat dst = new Mat();
+                float width=src.width();
+                float height=src.height();
+                Imgproc.resize(dst1,dst,new Size(width/2,height/2));*/
+
+                System.out.println("Done");
+
+                /*Mat dst1 = new Mat();
+                Imgproc.threshold(src, dst1, 228.0, 256.0, Imgproc.THRESH_BINARY_INV);
+                Mat dst2 = new Mat();
+                Imgproc.threshold(src, dst2, 7, 256.0, Imgproc.THRESH_BINARY_INV);
+                Mat dstn = new Mat();
+                Core.absdiff(dst1,dst2,dstn);
+                Mat dst = new Mat();
+                Core.bitwise_not(dstn,dst);
+
+                Imgcodecs.imwrite("D:\\test\\"+i+".jpg",dst);*/
+
+                Rectangle rect = new Rectangle(0,40,600, 40);
                 String result = instance.doOCR(mat2BI(dst), rect);
 
                 String str = result.replace(" 二 ", ":");
@@ -151,4 +168,6 @@ public class test{
 
 
 }
+
+
 
