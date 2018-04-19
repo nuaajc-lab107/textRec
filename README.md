@@ -29,14 +29,7 @@ Tess4J是Tesseract-OCR API在Java PC上的一个应用，具体使用时不用�
 GitHub开源地址：[https://github.com/tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata)，选择`chi_sim.traineddata`下载即可。
 
 
-
-> PS:
->
-> 另外本程序还引用了我自己写的~~无敌的~~大幅提高字库识别水平的jar包fix.jar，哈没想到吧。
-
-
-
-> 再PS：
+> PS：
 >
 > 以上依赖包OpenCV与Tess4J需要配置环境变量，具体请自行查阅相关文档。
 
