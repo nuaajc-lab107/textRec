@@ -27,7 +27,6 @@ public class test extends JFrame implements ActionListener {
     JButton btnStart = new JButton("开始");
     JTextArea txtLog = new JTextArea();
     JFileChooser chooser = new JFileChooser();
-    public String choosertxt;
 
     int[] exp = new int[10];
     int j = 0;
@@ -165,7 +164,7 @@ public class test extends JFrame implements ActionListener {
         }
 
         if (exp[0]!=0)
-            new painterr();
+            new painterr(chooser.getSelectedFile()+"\\",exp);
     }
 
     private static BufferedImage mat2BI(Mat mat){
@@ -196,10 +195,9 @@ public class test extends JFrame implements ActionListener {
         if (source==btnOpen){
             int result = chooser.showOpenDialog(this);
             if (result==JFileChooser.APPROVE_OPTION);
-            txtLog.append("File:"+chooser.getSelectedFile()+"is open");
+            txtLog.append("File:"+chooser.getSelectedFile()+"is open\n");
         }
         if (source== btnStart){
-            choosertxt = chooser.getSelectedFile()+"\\";
             start();
         }
     }
@@ -239,88 +237,6 @@ public class test extends JFrame implements ActionListener {
     }
 }
 
-class painterr extends JFrame implements ActionListener {
-
-    public painterr(){
-        JFrame jferr = new JFrame();
-
-        Container container = jferr.getContentPane();
-        jferr.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        JPanel jp = new JPanel();
-        jp.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-
-        JLabel num = new JLabel("企业编号");
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 0;
-        c.gridy = 0;
-        //c.weighty = 1;
-        jp.add(num,c);
-
-        JTextField numtx = new JTextField(20);
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 0;
-        //c.weighty = 1;
-        jp.add(numtx,c);
-
-        JLabel name = new JLabel("企业名称");
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 3;
-        c.gridy = 0;
-        //c.weighty = 1;
-        jp.add(name,c);
-
-        JTextField nametx = new JTextField(20);
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 4;
-        c.gridy = 0;
-        //c.weighty = 1;
-        jp.add(nametx,c);
-
-        JButton ok = new JButton("确定");
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 0;
-        c.gridy = 1;
-        c.gridwidth = 1;
-        jp.add(ok,c);
-
-        JButton skip = new JButton("跳过");
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 3;
-        c.gridy = 1;
-        c.gridwidth  = 1;
-        jp.add(skip,c);
-
-        jp.setPreferredSize(new Dimension(500,100));
-
-        container.add(jp,BorderLayout.SOUTH);
-
-        JPanel imagePanel = new JPanel(){
-            public void paintComponent(Graphics g) {
-                super.paintComponents(g);
-
-                try {
-                    Image image = ImageIO.read(new File("C:\\Users\\Aye10032\\Documents\\bxalter.jpg"));
-                    g.drawImage(image, 0, 0, null);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        container.add(imagePanel,BorderLayout.CENTER);
-
-
-        jferr.setSize(900,900);
-        jferr.show();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-}
 
 
 
