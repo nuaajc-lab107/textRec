@@ -6,13 +6,14 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
-class painterr extends JFrame{
+public class painterr extends Frame{
 
     JButton skip = new JButton("跳过");
     JButton ok = new JButton("确定");
     int i = 0;
 
     public painterr(String impath, int[] arr){
+
         JFrame jferr = new JFrame();
 
         Container container = jferr.getContentPane();
@@ -66,19 +67,19 @@ class painterr extends JFrame{
 
         container.add(jp,BorderLayout.SOUTH);
 
-        JPanel imagePanel = new JPanel(){
+        JPanel JP = new JPanel(){
             public void paintComponent(Graphics g) {
                 super.paintComponents(g);
 
                 try {
-                    Image image = ImageIO.read(new File(impath+arr[i]+".png"));
+                    Image image = ImageIO.read(new File(impath+arr[0]+".png"));
                     g.drawImage(image, 0, 0, null);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         };
-        container.add(imagePanel,BorderLayout.CENTER);
+        container.add(JP,BorderLayout.CENTER);
 
 
         jferr.setSize(900,900);
@@ -94,30 +95,82 @@ class painterr extends JFrame{
                 else{
                     System.out.println(numtx.getText());
                     System.out.println(nametx.getText());
-                }
 
+                    JP.setVisible(false);
+
+                    i++;
+                    JPanel imagePanel = new JPanel(){
+                        public void paintComponent(Graphics g) {
+                            super.paintComponents(g);
+
+                            try {
+                                if (arr[i]!=0){
+                                    Image image = ImageIO.read(new File(impath+arr[i]+".png"));
+                                    g.drawImage(image, 0, 0, null);
+                                }else if (i>arr.length){
+                                    JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                                }else {
+                                    JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                                }
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+                    container.add(imagePanel,BorderLayout.CENTER);
+                    System.out.println(i);
+                    new PaintThread().start();
+                }
+            }
+
+            class PaintThread extends Thread{
+                @Override
+                public void run() {
+                    numtx.setText("");
+                    nametx.setText("");
+                    jferr.repaint();
+                    System.out.println("pk");
+                }
             }
         });
 
         skip.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-                imagePanel.setVisible(false);
-                i = i++;
+                JP.setVisible(false);
+
+                i++;
                 JPanel imagePanel = new JPanel(){
                     public void paintComponent(Graphics g) {
                         super.paintComponents(g);
 
                         try {
-                            Image image = ImageIO.read(new File(impath+arr[i]+".png"));
-                            g.drawImage(image, 0, 0, null);
+                            if (arr[i]!=0){
+                                Image image = ImageIO.read(new File(impath+arr[i]+".png"));
+                                g.drawImage(image, 0, 0, null);
+                            }else {
+                                JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                            }
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                 };
                 container.add(imagePanel,BorderLayout.CENTER);
+                System.out.println(i);
+                new PaintThread().start();
+            }
+
+            class PaintThread extends Thread{
+                @Override
+                public void run() {
+                    jferr.repaint();
+                }
             }
         });
     }
+
+
 }
