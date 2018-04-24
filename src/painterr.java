@@ -1,16 +1,21 @@
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class painterr extends Frame{
 
     JButton skip = new JButton("跳过");
     JButton ok = new JButton("确定");
     int i = 0;
+    String filepath = "D:\\test\\test.xls";
 
     public painterr(String impath, int[] arr){
 
@@ -93,6 +98,29 @@ public class painterr extends Frame{
                 else if (nametx.getText().equals(""))
                     JOptionPane.showMessageDialog(new JFrame(), "请输入企业名称", "warning", JOptionPane.WARNING_MESSAGE);
                 else{
+                    String numlast = numtx.getText();
+                    String namelast = nametx.getText();
+                    try {
+                        FileInputStream fileInput = new FileInputStream(filepath);
+                        HSSFWorkbook workbook = new HSSFWorkbook(fileInput);
+                        fileInput.close();
+
+                        HSSFSheet sheet = workbook.getSheetAt(0);
+
+                        FileOutputStream out = new FileOutputStream(filepath);
+                        HSSFRow row = sheet.getRow(arr[i]);
+                        HSSFCell NUM = row.createCell(0);
+                        NUM.setCellValue(numlast);
+                        HSSFCell NAME = row.createCell(1);
+                        NAME.setCellValue(namelast);
+                        workbook.write(out);
+                        out.close();
+
+                    } catch (FileNotFoundException e1) {
+                        e1.printStackTrace();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
                     System.out.println(numtx.getText());
                     System.out.println(nametx.getText());
 

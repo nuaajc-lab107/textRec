@@ -129,7 +129,6 @@ public class test extends JFrame implements ActionListener {
 
                     System.out.println(numlast);
                     System.out.println(namelast);
-                    this.txtLog.append(numlast+"00\n");
                 } else {
                     numlast = "error! picture wrong";
                     namelast = "error! picture wrong";
@@ -198,6 +197,7 @@ public class test extends JFrame implements ActionListener {
             txtLog.append("File:"+chooser.getSelectedFile()+"is open\n");
         }
         if (source== btnStart){
+            txtLog.append("Loading...");
             start();
         }
     }
