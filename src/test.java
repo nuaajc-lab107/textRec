@@ -129,7 +129,6 @@ public class test extends JFrame implements ActionListener {
 
                     System.out.println(numlast);
                     System.out.println(namelast);
-                    this.txtLog.append(numlast+"00\n");
                 } else {
                     numlast = "error! picture wrong";
                     namelast = "error! picture wrong";
@@ -162,6 +161,9 @@ public class test extends JFrame implements ActionListener {
             if (exp[i]!=0)
                 txtLog.append(exp[i]+" ");
         }
+
+        if (exp[0]!=0)
+            new painterr(chooser.getSelectedFile()+"\\",exp);
     }
 
     private static BufferedImage mat2BI(Mat mat){
@@ -192,9 +194,10 @@ public class test extends JFrame implements ActionListener {
         if (source==btnOpen){
             int result = chooser.showOpenDialog(this);
             if (result==JFileChooser.APPROVE_OPTION);
-            txtLog.append("File:"+chooser.getSelectedFile()+"is open");
+            txtLog.append("File:"+chooser.getSelectedFile()+"is open\n");
         }
         if (source== btnStart){
+            txtLog.append("Loading...");
             start();
         }
     }
@@ -233,6 +236,7 @@ public class test extends JFrame implements ActionListener {
 
     }
 }
+
 
 
 

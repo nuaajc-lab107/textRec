@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7bd74f68-9679-4c95-aca0-4c8b91fd8bb4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,15 +29,38 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="textRec" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="162" column="42" lean-forward="true" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
+            <state relative-caret-position="238">
+              <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="painterr.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/painterr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="85" column="10" lean-forward="true" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1979#2367#0" expanded="true" />
+                <element signature="e#2366#2367#0" expanded="true" />
+                <element signature="e#4252#5214#0" expanded="true" />
+                <element signature="e#5213#5214#0" expanded="true" />
+                <element signature="e#5951#6666#0" expanded="true" />
+                <element signature="e#6665#6666#0" expanded="true" />
+                <element signature="e#6934#6935#0" expanded="true" />
+                <element signature="e#6989#6990#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,6 +86,7 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test.java" />
+        <option value="$PROJECT_DIR$/src/painterr.java" />
       </list>
     </option>
   </component>
@@ -93,7 +115,31 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="textRec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="textRec" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -203,12 +249,22 @@
       <workItem from="1523885531148" duration="517000" />
       <workItem from="1524027823938" duration="393000" />
       <workItem from="1524028659272" duration="2244000" />
-      <workItem from="1524050699242" duration="2928000" />
+      <workItem from="1524050699242" duration="3795000" />
+      <workItem from="1524058500615" duration="615000" />
+      <workItem from="1524150829422" duration="1313000" />
+      <workItem from="1524191052236" duration="12230000" />
+      <workItem from="1524230308286" duration="1907000" />
+      <workItem from="1524548088688" duration="4942000" />
+      <workItem from="1524562961384" duration="10000" />
+      <workItem from="1524563098493" duration="30000" />
+      <workItem from="1524563280224" duration="75000" />
+      <workItem from="1524563622505" duration="613000" />
+      <workItem from="1524566815419" duration="1949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51180000" />
+    <option name="totallyTimeSpent" value="75731000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -233,17 +289,17 @@
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32983023" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32616487" />
-      <window_info active="true" anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.497979" visible="true" weight="0.3297491" />
+      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.497979" weight="0.3297491" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297491" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2700081" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" visible="true" weight="0.21503638" />
       <window_info anchor="right" id="Database" order="3" weight="0.32983023" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -292,33 +348,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="72" column="81" lean-forward="true" selection-start-line="72" selection-start-column="81" selection-end-line="72" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Tess4J-3.4.6-src/dist/tess4j-3.4.6.jar!/net/sourceforge/tess4j/ITesseract.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="76" column="37" lean-forward="true" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Tess4J-3.4.6-src/dist/tess4j-3.4.6.jar!/net/sourceforge/tess4j/ITesseract.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -641,14 +670,6 @@
       </provider>
     </entry>
     <entry file="jar://D:/Tess4J/dist/tess4j-3.4.6.jar!/net/sourceforge/tess4j/ITesseract.class" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-174" />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Tess4J-3.4.6-src/dist/tess4j-3.4.6.jar!/com/recognition/software/jdeskew/ImageUtil.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1033">
@@ -691,12 +712,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/javax/swing/JTextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2628">
+          <caret line="163" column="13" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/awt/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="322">
+            <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="162" column="42" lean-forward="true" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
+        <state relative-caret-position="238">
+          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/painterr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="85" column="10" lean-forward="true" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1979#2367#0" expanded="true" />
+            <element signature="e#2366#2367#0" expanded="true" />
+            <element signature="e#4252#5214#0" expanded="true" />
+            <element signature="e#5213#5214#0" expanded="true" />
+            <element signature="e#5951#6666#0" expanded="true" />
+            <element signature="e#6665#6666#0" expanded="true" />
+            <element signature="e#6934#6935#0" expanded="true" />
+            <element signature="e#6989#6990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -766,7 +829,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>forJar</last-edited>
+          <last-edited>poi-bin-3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
