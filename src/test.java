@@ -35,6 +35,7 @@ public class test extends JFrame implements ActionListener {
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
         String filepath = "D:\\test\\test.xls";
+        String imageFile = chooser.getSelectedFile()+"\\";
 
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("test");
@@ -46,14 +47,29 @@ public class test extends JFrame implements ActionListener {
         HSSFCell nametop = osisjdjs.createCell(1);
         nametop.setCellValue("企业名称");
 
+        Num nu = new Num();
+
+        ImageDeal imageDeal = new ImageDeal(nu,imageFile);
+        MatDeal matDeal = new MatDeal(nu,imageFile);
+
+        try {
+            System.out.println("waiting for threads to finish");
+            imageDeal.t.join();
+            matDeal.t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        nu.flag = false;
+        nu.i = 1;
+
         for (int i=1; i<50; i++) {
 
-            String imageFile = chooser.getSelectedFile()+"\\" + i;
 
             try {
                 BufferedImage bufferedImage;
 
-                try {
+                /*try {
 
                     bufferedImage = ImageIO.read(new File(imageFile + ".png"));
 
@@ -81,13 +97,13 @@ public class test extends JFrame implements ActionListener {
                 Mat dst = new Mat();
                 Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
 
-                /*Mat dst = new Mat();
+                *//*Mat dst = new Mat();
                 float width=src.width();
                 float height=src.height();
-                Imgproc.resize(dst1,dst,new Size(width/2,height/2));*/
+                Imgproc.resize(dst1,dst,new Size(width/2,height/2));*//*
 
                 this.txtLog.append("done");
-                System.out.println("Done");
+                System.out.println("Done");*/
 
                 /*Mat dst1 = new Mat();
                 Imgproc.threshold(src, dst1, 228.0, 256.0, Imgproc.THRESH_BINARY_INV);
@@ -99,9 +115,10 @@ public class test extends JFrame implements ActionListener {
                 Core.bitwise_not(dstn,dst);
 
                 Imgcodecs.imwrite("D:\\test\\"+i+".jpg",dst);*/
+                bufferedImage = ImageIO.read(new File(imageFile + nu.i + ".jpg"));
 
                 Rectangle rect = new Rectangle(0,0,600, 80);
-                String result = instance.doOCR(mat2BI(dst), rect);
+                String result = instance.doOCR(bufferedImage, rect);
 
                 String str = result.replace(" 二 ", ":");
                 String stro = str.replace("二 ",":");
@@ -237,6 +254,102 @@ public class test extends JFrame implements ActionListener {
     }
 }
 
+class Num {
+    int i=1;
+    boolean flag = false;
+}
+
+class ImageDeal implements Runnable{
+    Num num ;
+    Thread t;
+    String path;
+
+    public ImageDeal(Num num,String path)
+    {
+        t = new Thread(this);
+        this.num = num;
+        this.path = path;
+        t.start();
+    }
+    public void run()
+    {
+        while(num.i<= 50)
+        {
+            synchronized (num) {
+                if(num.flag)
+                {
+                    try {
+                        num.wait();
+                    } catch (Exception e) {
+                    }
+                }
+                else {
+                    try {
+                        BufferedImage bufferedImage;
+
+                        bufferedImage = ImageIO.read(new File(path + num.i + ".png"));
+
+                        BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
+                                bufferedImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+
+                        newBufferedImage.createGraphics().drawImage(bufferedImage, 0, 0, Color.WHITE, null);
+
+                        ImageIO.write(newBufferedImage, "jpg", new File(path + num.i + "n.jpg"));
+
+                        System.out.println(num.i+"imag done");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    num.flag = true;
+                    num.notify();
+                }
+            }
+        }
+    }
+}
+
+
+class MatDeal implements Runnable{
+    Num num;
+    Thread t;
+    String path;
+
+    public MatDeal(Num num,String path) {
+        t = new Thread(this);
+        this.num = num;
+        this.path = path;
+        t.start();
+    }
+    public void run()
+    {
+        while(num.i<=50)
+        {
+            synchronized (num){
+                if(!num.flag)
+                {
+                    try
+                    {
+                        num.wait();
+                    } catch (Exception e)
+                    {}
+                }
+                else {
+
+                    System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
+                    Mat src = Imgcodecs.imread(path+num.i+"n.jpg");
+                    Mat dst = new Mat();
+                    Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
+                    Imgcodecs.imwrite(path + num.i +".jpg",dst);
+                    System.out.println("去水印"+num.i);
+                    num.i++;
+                    num.flag = false;
+                    num.notify();
+                }
+            }
+        }
+    }
+}
 
 
 
