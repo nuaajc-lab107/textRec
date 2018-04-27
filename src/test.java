@@ -14,7 +14,6 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
@@ -28,13 +27,12 @@ public class test extends JFrame implements ActionListener {
     JTextArea txtLog = new JTextArea();
     JFileChooser chooser = new JFileChooser();
 
-    int[] exp = new int[10];
-    int j = 0;
 
     private void start() {
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
         String filepath = "D:\\test\\test.xls";
+        String imageFile = chooser.getSelectedFile()+"\\";
 
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("test");
@@ -46,146 +44,58 @@ public class test extends JFrame implements ActionListener {
         HSSFCell nametop = osisjdjs.createCell(1);
         nametop.setCellValue("企业名称");
 
-        for (int i=1; i<50; i++) {
+        Num nu = new Num();
 
-            String imageFile = chooser.getSelectedFile()+"\\" + i;
+        ImageDeal imageDeal = new ImageDeal(nu,imageFile);
+        MatDeal matDeal = new MatDeal(nu,imageFile);
 
+        try {
+            System.out.println("waiting for threads to finish");
+            imageDeal.t.join();
+            matDeal.t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        NumRec numRec = new NumRec(nu,imageFile);
+        NameRec nameRec = new NameRec(nu,imageFile);
+
+        if (!matDeal.t.isAlive()) {
             try {
-                BufferedImage bufferedImage;
+                System.out.println("开始识别");
 
-                try {
+                numRec.t.join();
+                nameRec.t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
-                    bufferedImage = ImageIO.read(new File(imageFile + ".png"));
-
-                    BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
-                            bufferedImage.getHeight(), BufferedImage.TYPE_INT_RGB);
-
-                    newBufferedImage.createGraphics().drawImage(bufferedImage, 0, 0, Color.WHITE, null);
-
-                    ImageIO.write(newBufferedImage, "jpg", new File(imageFile + ".jpg"));
-
-
-                } catch (IOException e) {
-
-                    e.printStackTrace();
-
-                }
-
-                System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-                Mat src = Imgcodecs.imread(imageFile + ".jpg",0);
-
-                if (src.empty()) {
-                    throw new Exception("no file");
-                }
-
-                Mat dst = new Mat();
-                Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
-
-                /*Mat dst = new Mat();
-                float width=src.width();
-                float height=src.height();
-                Imgproc.resize(dst1,dst,new Size(width/2,height/2));*/
-
-                this.txtLog.append("done");
-                System.out.println("Done");
-
-                /*Mat dst1 = new Mat();
-                Imgproc.threshold(src, dst1, 228.0, 256.0, Imgproc.THRESH_BINARY_INV);
-                Mat dst2 = new Mat();
-                Imgproc.threshold(src, dst2, 7, 256.0, Imgproc.THRESH_BINARY_INV);
-                Mat dstn = new Mat();
-                Core.absdiff(dst1,dst2,dstn);
-                Mat dst = new Mat();
-                Core.bitwise_not(dstn,dst);
-
-                Imgcodecs.imwrite("D:\\test\\"+i+".jpg",dst);*/
-
-                Rectangle rect = new Rectangle(0,0,600, 80);
-                String result = instance.doOCR(mat2BI(dst), rect);
-
-                String str = result.replace(" 二 ", ":");
-                String stro = str.replace("二 ",":");
-
-                System.out.print(stro);
-
-                String num, name, numlast, namelast;
-
-                if (stro.contains(":")) {
-                    int stnum = stro.indexOf(':');
-                    int ennum = stro.indexOf('\n');
-                    int stname = stro.indexOf(':', ennum);
-
-                    num = stro.substring(stnum + 1, ennum);
-                    name = stro.substring(stname + 1);
-
-                    numlast = fix.fixnum(num);
-                    namelast = fix.fixname(name);
-
-            /*
-            System.out.println(stnum);
-            System.out.println(ennum);
-            System.out.print(stname);
-            */
-
-                    System.out.println(numlast);
-                    System.out.println(namelast);
-                } else {
-                    numlast = "error! picture wrong";
-                    namelast = "error! picture wrong";
-
-                    exp[j]=i;
-                    j++;
-                }
-
+        for (int i = 1; i < 50; i++){
+            try {
                 FileOutputStream out = new FileOutputStream(filepath);
                 HSSFRow row = sheet.createRow(i);
                 HSSFCell NUM = row.createCell(0);
-                NUM.setCellValue(numlast);
+                NUM.setCellValue(nu.numarr[i]);
                 HSSFCell NAME = row.createCell(1);
-                NAME.setCellValue(namelast);
+                NAME.setCellValue(nu.namearr[i]);
                 workbook.write(out);
                 out.close();
-
-            } catch (TesseractException e) {
-                System.err.print(e.getMessage());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
 
-        for (int i = 0; i < exp.length; i++) {
-            if (exp[i]!=0)
-                txtLog.append(exp[i]+" ");
+        for (int i = 0; i < nu.exp.length; i++) {
+            if (nu.exp[i]!=0)
+                System.out.println(nu.exp[i]);//txtLog.append(nu.exp[i]+" ");
         }
 
-        if (exp[0]!=0)
-            new painterr(chooser.getSelectedFile()+"\\",exp);
+        if (nu.exp[0]!=0)
+            new painterr(chooser.getSelectedFile()+"\\",nu.exp);
     }
-
-    private static BufferedImage mat2BI(Mat mat){
-        int dataSize = mat.cols()*mat.rows()*(int)mat.elemSize();
-        byte[] data = new byte[dataSize];
-        mat.get(0,0,data);
-        int type = mat.channels()==1?
-                BufferedImage.TYPE_BYTE_GRAY:BufferedImage.TYPE_3BYTE_BGR;
-
-        if(type==BufferedImage.TYPE_3BYTE_BGR){
-            for(int i=0; i<dataSize; i+=3){
-                byte blue = data[i+0];
-                data[i+0] = data[i+2];
-                data[i+2] = blue;
-            }
-        }
-        BufferedImage image = new BufferedImage(mat.cols(),mat.rows(),type);
-        image.getRaster().setDataElements(0,0,mat.cols(),mat.rows(),data);
-
-        return image;
-    }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -237,6 +147,238 @@ public class test extends JFrame implements ActionListener {
     }
 }
 
+class Num {
+    int i=1;
+    boolean flag = false;
+
+    int[] exp = new int[10];
+    int j = 0;
+
+    String[] numarr = new String[70];
+    String[] namearr = new String[70];
+}
+
+class ImageDeal implements Runnable{
+    Num num ;
+    Thread t;
+    String path;
+
+    public ImageDeal(Num num,String path)
+    {
+        t = new Thread(this);
+        this.num = num;
+        this.path = path;
+        t.start();
+    }
+
+    @Override
+    public void run()
+    {
+        while(num.i<= 50)
+        {
+            synchronized (num) {
+                if(num.flag)
+                {
+                    try {
+                        num.wait();
+                    } catch (Exception e) {
+                    }
+                }
+                else {
+                    try {
+                        BufferedImage bufferedImage;
+
+                        bufferedImage = ImageIO.read(new File(path + num.i + ".png"));
+
+                        BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
+                                bufferedImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+
+                        newBufferedImage.createGraphics().drawImage(bufferedImage, 0, 0, Color.WHITE, null);
+
+                        ImageIO.write(newBufferedImage, "jpg", new File(path + num.i + "n.jpg"));
+
+                        System.out.println(num.i+"imag done");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    num.flag = true;
+                    num.notify();
+                }
+            }
+        }
+    }
+}
+
+
+class MatDeal implements Runnable{
+    Num num;
+    Thread t;
+    String path;
+
+    public MatDeal(Num num,String path) {
+        t = new Thread(this);
+        this.num = num;
+        this.path = path;
+        t.start();
+    }
+
+    @Override
+    public void run()
+    {
+        while(num.i<=50)
+        {
+            synchronized (num){
+                if(!num.flag)
+                {
+                    try
+                    {
+                        num.wait();
+                    } catch (Exception e)
+                    {}
+                }
+                else {
+
+                    System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
+                    Mat src = Imgcodecs.imread(path+num.i+"n.jpg");
+                    Mat dst = new Mat();
+                    Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
+                    Imgcodecs.imwrite(path + num.i +".jpg",dst);
+                    System.out.println("去水印"+num.i);
+                    num.i++;
+                    num.flag = false;
+                    num.notify();
+                }
+            }
+        }
+    }
+}
+
+class NumRec implements Runnable{
+
+    Num num;
+    Thread t;
+    String path;
+
+
+    public NumRec(Num num,String path) {
+        t = new Thread(this);
+        this.num = num;
+        this.path = path;
+        t.start();
+    }
+
+    @Override
+    public void run() {
+
+        ITesseract instance = new Tesseract();
+        instance.setLanguage("chi_sim");
+
+        for (int i = 1; i < 50; i++){
+            try {
+                BufferedImage bufferedImage;
+
+                bufferedImage = ImageIO.read(new File(path + i + ".jpg"));
+
+                Rectangle rect = new Rectangle(0, 0, 600, 40);
+                String result = instance.doOCR(bufferedImage, rect);
+
+                String str = result.replace(" 二 ", ":");
+                String stro = str.replace("二 ", ":");
+
+                System.out.print(stro);
+
+                String numfi, numlast;
+
+                if (stro.contains(":")) {
+                    int start = stro.indexOf(':');
+
+                    numfi = stro.substring(start + 1);
+
+                    numlast = fix.fixnum(numfi);
+
+                    System.out.println(numlast);
+                    num.numarr[i] = numlast;
+
+                } else {
+                    numlast = "error! picture wrong";
+
+                    System.out.println(numlast);
+                    num.numarr[i] = numlast;
+
+                    num.exp[num.j] = i;
+                    num.j++;
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (TesseractException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class NameRec implements Runnable{
+
+    Num num;
+    Thread t;
+    String path;
+
+    public NameRec(Num num,String path) {
+        t = new Thread(this);
+        this.num = num;
+        this.path = path;
+        t.start();
+    }
+
+    @Override
+    public void run() {
+
+        ITesseract instance = new Tesseract();
+        instance.setLanguage("chi_sim");
+
+        for (int i = 1; i < 50; i++){
+            try {
+                BufferedImage bufferedImage;
+
+                bufferedImage = ImageIO.read(new File(path + i + ".jpg"));
+
+                Rectangle rect = new Rectangle(0, 40, 600, 40);
+                String result = instance.doOCR(bufferedImage, rect);
+
+                String str = result.replace(" 二 ", ":");
+                String stro = str.replace("二 ", ":");
+
+                System.out.print(stro);
+
+                String name, namelast;
+
+                if (stro.contains(":")) {
+                    int start = stro.indexOf(':');
+
+                    name = stro.substring(start + 1);
+
+                    namelast = fix.fixnum(name);
+
+                    System.out.println(namelast);
+                    num.namearr[i] = namelast;
+
+                } else {
+                    namelast = "error! picture wrong";
+
+                    System.out.println(namelast);
+                    num.namearr[i] = namelast;
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (TesseractException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
 
 
 
