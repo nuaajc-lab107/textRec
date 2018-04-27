@@ -27,8 +27,6 @@ public class test extends JFrame implements ActionListener {
     JTextArea txtLog = new JTextArea();
     JFileChooser chooser = new JFileChooser();
 
-    /*public int[] exp = new int[10];
-    public int j = 0;*/
 
     private void start() {
         ITesseract instance = new Tesseract();
@@ -92,7 +90,7 @@ public class test extends JFrame implements ActionListener {
 
         for (int i = 0; i < nu.exp.length; i++) {
             if (nu.exp[i]!=0)
-                txtLog.append(nu.exp[i]+" ");
+                System.out.println(nu.exp[i]);//txtLog.append(nu.exp[i]+" ");
         }
 
         if (nu.exp[0]!=0)
@@ -371,9 +369,6 @@ class NameRec implements Runnable{
 
                     System.out.println(namelast);
                     num.namearr[i] = namelast;
-
-                    num.exp[num.j] = i;
-                    num.j++;
                 }
 
             } catch (IOException e) {
