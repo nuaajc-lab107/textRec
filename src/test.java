@@ -108,6 +108,7 @@ public class test extends JFrame implements ActionListener {
         }
         if (source== btnStart){
             txtLog.append("Loading...");
+            txtLog.repaint();
             start();
         }
     }
@@ -197,7 +198,7 @@ class ImageDeal implements Runnable{
 
                         ImageIO.write(newBufferedImage, "jpg", new File(path + num.i + "n.jpg"));
 
-                        System.out.println(num.i+"imag done");
+                        //System.out.println(num.i+"imag done");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -244,7 +245,7 @@ class MatDeal implements Runnable{
                     Mat dst = new Mat();
                     Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
                     Imgcodecs.imwrite(path + num.i +".jpg",dst);
-                    System.out.println("去水印"+num.i);
+                    //System.out.println("去水印"+num.i);
                     num.i++;
                     num.flag = false;
                     num.notify();
@@ -280,13 +281,13 @@ class NumRec implements Runnable{
 
                 bufferedImage = ImageIO.read(new File(path + i + ".jpg"));
 
-                Rectangle rect = new Rectangle(0, 0, 600, 40);
+                Rectangle rect = new Rectangle(0, 0, 450, 40);
                 String result = instance.doOCR(bufferedImage, rect);
 
                 String str = result.replace(" 二 ", ":");
                 String stro = str.replace("二 ", ":");
 
-                System.out.print(stro);
+                //System.out.print(stro);
 
                 String numfi, numlast;
 
@@ -297,13 +298,14 @@ class NumRec implements Runnable{
 
                     numlast = fix.fixnum(numfi);
 
-                    System.out.println(numlast);
+                    //System.out.println(numlast);
                     num.numarr[i] = numlast;
+
 
                 } else {
                     numlast = "error! picture wrong";
 
-                    System.out.println(numlast);
+                    //System.out.println(numlast);
                     num.numarr[i] = numlast;
 
                     num.exp[num.j] = i;
@@ -324,6 +326,7 @@ class NameRec implements Runnable{
     Num num;
     Thread t;
     String path;
+
 
     public NameRec(Num num,String path) {
         t = new Thread(this);
@@ -350,7 +353,7 @@ class NameRec implements Runnable{
                 String str = result.replace(" 二 ", ":");
                 String stro = str.replace("二 ", ":");
 
-                System.out.print(stro);
+                //System.out.print(stro);
 
                 String name, namelast;
 
@@ -361,9 +364,12 @@ class NameRec implements Runnable{
 
                     namelast = fix.fixnum(name);
 
-                    System.out.println(namelast);
+                    if (i%2 == 0) {
+                        System.out.println("嘟");
+                    }else {
+                        System.out.println("哒");
+                    }
                     num.namearr[i] = namelast;
-
                 } else {
                     namelast = "error! picture wrong";
 
