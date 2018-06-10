@@ -26,7 +26,30 @@ public class test extends JFrame implements ActionListener {
     JButton btnStart = new JButton("开始");
     JTextArea txtLog = new JTextArea();
     JFileChooser chooser = new JFileChooser();
+    Num nu = new Num();
+    boolean dealEnd = false;
 
+    private void load(){
+
+        String imageFile = chooser.getSelectedFile()+"\\";
+
+        ImageDeal imageDeal = new ImageDeal(nu,imageFile);
+        MatDeal matDeal = new MatDeal(nu,imageFile);
+
+        try {
+            System.out.println("waiting for threads to finish");
+            imageDeal.t.join();
+            matDeal.t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (!matDeal.t.isAlive()){
+            dealEnd = true;
+            txtLog.append("loading final\n");
+        }
+
+    }
 
     private void start() {
         ITesseract instance = new Tesseract();
@@ -44,26 +67,12 @@ public class test extends JFrame implements ActionListener {
         HSSFCell nametop = osisjdjs.createCell(1);
         nametop.setCellValue("企业名称");
 
-        Num nu = new Num();
-
-        ImageDeal imageDeal = new ImageDeal(nu,imageFile);
-        MatDeal matDeal = new MatDeal(nu,imageFile);
-
-        try {
-            System.out.println("waiting for threads to finish");
-            imageDeal.t.join();
-            matDeal.t.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         NumRec numRec = new NumRec(nu,imageFile);
         NameRec nameRec = new NameRec(nu,imageFile);
 
-        if (!matDeal.t.isAlive()) {
+        if (dealEnd) {
             try {
-                System.out.println("开始识别");
-
+                //System.out.println("开始识别");
                 numRec.t.join();
                 nameRec.t.join();
             } catch (InterruptedException e) {
@@ -71,7 +80,7 @@ public class test extends JFrame implements ActionListener {
             }
         }
 
-        for (int i = 1; i < 50; i++){
+        for (int i = 1; i <= 50; i++){
             try {
                 FileOutputStream out = new FileOutputStream(filepath);
                 HSSFRow row = sheet.createRow(i);
@@ -102,13 +111,14 @@ public class test extends JFrame implements ActionListener {
         Object source = e.getSource();
 
         if (source==btnOpen){
+            txtLog.append("Loading... ...\n"/*"File:"+chooser.getSelectedFile()+"is open\n"*/);
             int result = chooser.showOpenDialog(this);
             if (result==JFileChooser.APPROVE_OPTION);
-            txtLog.append("File:"+chooser.getSelectedFile()+"is open\n");
+            load();
         }
         if (source== btnStart){
-            txtLog.append("Loading...");
-            txtLog.repaint();
+            txtLog.append("Start");
+            //txtLog.repaint();
             start();
         }
     }
@@ -275,7 +285,7 @@ class NumRec implements Runnable{
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
 
-        for (int i = 1; i < 50; i++){
+        for (int i = 1; i <= 50; i++){
             try {
                 BufferedImage bufferedImage;
 
@@ -341,7 +351,7 @@ class NameRec implements Runnable{
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
 
-        for (int i = 1; i < 50; i++){
+        for (int i = 1; i <= 50; i++){
             try {
                 BufferedImage bufferedImage;
 
@@ -364,11 +374,12 @@ class NameRec implements Runnable{
 
                     namelast = fix.fixnum(name);
 
-                    if (i%2 == 0) {
+                    /*if (i%2 == 0) {
                         System.out.println("嘟");
                     }else {
                         System.out.println("哒");
-                    }
+                    }*/
+                    System.out.println(i);
                     num.namearr[i] = namelast;
                 } else {
                     namelast = "error! picture wrong";
