@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bd74f68-9679-4c95-aca0-4c8b91fd8bb4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/util/imgResize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/m2b.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/ImageDeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/ImageDeal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/MatDeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/MatDeal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/NameRec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/NameRec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/Num.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/Num.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/NumRec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/NumRec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/painterr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/painterr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2$PaintThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2$PaintThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,7 +44,7 @@
       <file leaf-file-name="test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5531">
+            <state relative-caret-position="-4256">
               <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -114,10 +111,10 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/util/doocr.java" />
         <option value="$PROJECT_DIR$/src/util/Binary.java" />
-        <option value="$PROJECT_DIR$/src/test.java" />
         <option value="$PROJECT_DIR$/src/util/m2b.java" />
         <option value="$PROJECT_DIR$/src/util/imgResize.java" />
         <option value="$PROJECT_DIR$/src/painterr.java" />
+        <option value="$PROJECT_DIR$/src/test.java" />
       </list>
     </option>
   </component>
@@ -339,7 +336,7 @@
       <workItem from="1528769362752" duration="2390000" />
       <workItem from="1528775916606" duration="3417000" />
       <workItem from="1528866486695" duration="172000" />
-      <workItem from="1528951705473" duration="1526000" />
+      <workItem from="1528951705473" duration="2324000" />
     </task>
     <task id="LOCAL-00001" summary="更新了加载模式">
       <created>1528632959305</created>
@@ -348,11 +345,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528632959305</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="更新了图像大小调整的模块，新加工具类">
+      <created>1528953427066</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528953427066</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120292000" />
+    <option name="totallyTimeSpent" value="121090000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -433,7 +437,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="更新了加载模式" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新了加载模式" />
+    <MESSAGE value="更新了图像大小调整的模块，新加工具类" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新了图像大小调整的模块，新加工具类" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -750,7 +756,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5531">
+        <state relative-caret-position="-4256">
           <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
