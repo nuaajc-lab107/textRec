@@ -5,6 +5,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import util.imgResize;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -81,12 +82,9 @@ public class painterr extends Frame {
             public void paintComponent(Graphics g) {
                 super.paintComponents(g);
 
-                try {
-                    Image image = ImageIO.read(new File(impath + arr[0] + ".png"));
-                    g.drawImage(image, 0, 0, null);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                //Image image = ImageIO.read(new File(impath + arr[0] + ".png"));
+                Image image = imgResize.reimg(arr, 0, impath);
+                g.drawImage(image, 0, 0, null);
             }
         };
         container.add(JP, BorderLayout.CENTER);
@@ -140,7 +138,8 @@ public class painterr extends Frame {
 
                             try {
                                 if (arr[i] != 0) {
-                                    Image image = ImageIO.read(new File(impath + arr[i] + ".png"));
+                                    //Image image = ImageIO.read(new File(impath + arr[i] + ".png"));
+                                    Image image = imgResize.reimg(arr, i, impath);
                                     g.drawImage(image, 0, 0, null);
                                 } else if (i > arr.length) {
                                     JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
@@ -189,7 +188,8 @@ public class painterr extends Frame {
 
                         try {
                             if (arr[i] != 0) {
-                                Image image = ImageIO.read(new File(impath + arr[i] + ".png"));
+                                //Image image = ImageIO.read(new File(impath + arr[i] + ".png"));
+                                Image image = imgResize.reimg(arr, i, impath);
                                 g.drawImage(image, 0, 0, null);
                             } else {
                                 JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
@@ -221,27 +221,4 @@ public class painterr extends Frame {
             }
         });
     }
-
-
-    private BufferedImage mat2BI(Mat mat) {
-        int dataSize = mat.cols() * mat.rows() * (int) mat.elemSize();
-        byte[] data = new byte[dataSize];
-        mat.get(0, 0, data);
-        int type = mat.channels() == 1 ?
-                BufferedImage.TYPE_BYTE_GRAY : BufferedImage.TYPE_3BYTE_BGR;
-
-        if (type == BufferedImage.TYPE_3BYTE_BGR) {
-            for (int i = 0; i < dataSize; i += 3) {
-                byte blue = data[i + 0];
-                data[i + 0] = data[i + 2];
-                data[i + 2] = blue;
-            }
-        }
-        BufferedImage image = new BufferedImage(mat.cols(), mat.rows(), type);
-        image.getRaster().setDataElements(0, 0, mat.cols(), mat.rows(), data);
-
-        return image;
-    }
-
-
 }
