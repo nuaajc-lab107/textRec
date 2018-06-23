@@ -26,7 +26,30 @@ public class test extends JFrame implements ActionListener {
     JButton btnStart = new JButton("开始");
     JTextArea txtLog = new JTextArea();
     JFileChooser chooser = new JFileChooser();
+    Num nu = new Num();
+    boolean dealEnd = false;
 
+    private void load(){
+
+        String imageFile = chooser.getSelectedFile()+"\\";
+
+        ImageDeal imageDeal = new ImageDeal(nu,imageFile);
+        MatDeal matDeal = new MatDeal(nu,imageFile);
+
+        try {
+            System.out.println("waiting for threads to finish");
+            imageDeal.t.join();
+            matDeal.t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (!matDeal.t.isAlive()){
+            dealEnd = true;
+            txtLog.append("loading final\n");
+        }
+
+    }
 
     private void start() {
         ITesseract instance = new Tesseract();
@@ -44,26 +67,12 @@ public class test extends JFrame implements ActionListener {
         HSSFCell nametop = osisjdjs.createCell(1);
         nametop.setCellValue("企业名称");
 
-        Num nu = new Num();
-
-        ImageDeal imageDeal = new ImageDeal(nu,imageFile);
-        MatDeal matDeal = new MatDeal(nu,imageFile);
-
-        try {
-            System.out.println("waiting for threads to finish");
-            imageDeal.t.join();
-            matDeal.t.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         NumRec numRec = new NumRec(nu,imageFile);
         NameRec nameRec = new NameRec(nu,imageFile);
 
-        if (!matDeal.t.isAlive()) {
+        if (dealEnd) {
             try {
-                System.out.println("开始识别");
-
+                //System.out.println("开始识别");
                 numRec.t.join();
                 nameRec.t.join();
             } catch (InterruptedException e) {
@@ -71,7 +80,7 @@ public class test extends JFrame implements ActionListener {
             }
         }
 
-        for (int i = 1; i < 50; i++){
+        for (int i = 1; i <= 50; i++){
             try {
                 FileOutputStream out = new FileOutputStream(filepath);
                 HSSFRow row = sheet.createRow(i);
@@ -102,13 +111,14 @@ public class test extends JFrame implements ActionListener {
         Object source = e.getSource();
 
         if (source==btnOpen){
+            txtLog.append("Loading... ...\n"/*"File:"+chooser.getSelectedFile()+"is open\n"*/);
             int result = chooser.showOpenDialog(this);
             if (result==JFileChooser.APPROVE_OPTION);
-            txtLog.append("File:"+chooser.getSelectedFile()+"is open\n");
+            load();
         }
         if (source== btnStart){
-            txtLog.append("Loading...");
-            txtLog.repaint();
+            txtLog.append("Start");
+            //txtLog.repaint();
             start();
         }
     }
@@ -157,6 +167,8 @@ class Num {
 
     String[] numarr = new String[70];
     String[] namearr = new String[70];
+
+    BufferedImage stayimg;
 }
 
 class ImageDeal implements Runnable{
@@ -198,6 +210,7 @@ class ImageDeal implements Runnable{
 
                         ImageIO.write(newBufferedImage, "jpg", new File(path + num.i + "n.jpg"));
 
+                        //num.stayimg = newBufferedImage;
                         //System.out.println(num.i+"imag done");
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -216,7 +229,7 @@ class MatDeal implements Runnable{
     Thread t;
     String path;
 
-    public MatDeal(Num num,String path) {
+    public MatDeal(Num num, String path) {
         t = new Thread(this);
         this.num = num;
         this.path = path;
@@ -238,9 +251,38 @@ class MatDeal implements Runnable{
                     {}
                 }
                 else {
+                    /*BufferedImage img = num.stayimg;
 
+                    int h = img.getHeight();
+                    int w = img.getWidth();
+                    int rgb = img.getRGB(0, 0);
+
+                    int[][] gray = new int[w][h];
+                    for (int x = 0; x < w; x++) {
+                        for (int y = 0; y < h; y++) {
+                            gray[x][y] = dimg.getGray(img.getRGB(x, y));
+                        }
+                    }
+
+                    BufferedImage nbi=new BufferedImage(w,h,BufferedImage.TYPE_BYTE_BINARY);
+                    int SW=140;
+                    for (int x = 0; x < w; x++) {
+                        for (int y = 0; y < h; y++) {
+                            if(dimg.getAverageColor(gray, x, y, w, h)>SW){
+                                int max=new Color(255,255,255).getRGB();
+                                nbi.setRGB(x, y, max);
+                            }else{
+                                int min=new Color(0,0,0).getRGB();
+                                nbi.setRGB(x, y, min);
+                            }
+                        }
+                    }
+                    try {
+                        ImageIO.write(nbi, "jpg", new File(path + num.i +".jpg"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }*/
                     System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-
                     Mat src = Imgcodecs.imread(path+num.i+"n.jpg");
                     Mat dst = new Mat();
                     Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
@@ -275,7 +317,7 @@ class NumRec implements Runnable{
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
 
-        for (int i = 1; i < 50; i++){
+        for (int i = 1; i <= 50; i++){
             try {
                 BufferedImage bufferedImage;
 
@@ -341,7 +383,7 @@ class NameRec implements Runnable{
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
 
-        for (int i = 1; i < 50; i++){
+        for (int i = 1; i <= 50; i++){
             try {
                 BufferedImage bufferedImage;
 
@@ -364,11 +406,7 @@ class NameRec implements Runnable{
 
                     namelast = fix.fixnum(name);
 
-                    if (i%2 == 0) {
-                        System.out.println("嘟");
-                    }else {
-                        System.out.println("哒");
-                    }
+                    System.out.println(i);
                     num.namearr[i] = namelast;
                 } else {
                     namelast = "error! picture wrong";
@@ -384,6 +422,64 @@ class NameRec implements Runnable{
             }
         }
     }
+}
+
+class dimg {
+
+    public dimg(BufferedImage img) throws IOException {
+        int h = img.getHeight();
+        int w = img.getWidth();
+        int rgb = img.getRGB(0, 0);
+
+        int[][] gray = new int[w][h];
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                gray[x][y] = getGray(img.getRGB(x, y));
+            }
+        }
+
+        BufferedImage nbi = new BufferedImage(w, h, BufferedImage.TYPE_BYTE_BINARY);
+        int SW = 110;
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                if (getAverageColor(gray, x, y, w, h) > SW) {
+                    int max = new Color(255, 255, 255).getRGB();
+                    nbi.setRGB(x, y, max);
+                } else {
+                    int min = new Color(0, 0, 0).getRGB();
+                    nbi.setRGB(x, y, min);
+                }
+            }
+        }
+        ImageIO.write(nbi, "jpg", new File("D:\\test\\二值化后_无压缩.jpg"));
+    }
+
+    public static int getGray(int rgb) {
+        String str = Integer.toHexString(rgb);
+        /*int r = Integer.parseInt(str.substring(2, 4), 16);
+        int g = Integer.parseInt(str.substring(4, 6), 16);
+        int b = Integer.parseInt(str.substring(6, 8), 16);*/
+        Color c = new Color(rgb);
+        int r = c.getRed();
+        int g = c.getGreen();
+        int b = c.getBlue();
+        int top = (r + g + b) / 3;
+        return (int) (top);
+    }
+
+    public static int getAverageColor(int[][] gray, int x, int y, int w, int h) {
+        int rs = gray[x][y]
+                + (x == 0 ? 255 : gray[x - 1][y])
+                + (x == 0 || y == 0 ? 255 : gray[x - 1][y - 1])
+                + (x == 0 || y == h - 1 ? 255 : gray[x - 1][y + 1])
+                + (y == 0 ? 255 : gray[x][y - 1])
+                + (y == h - 1 ? 255 : gray[x][y + 1])
+                + (x == w - 1 ? 255 : gray[x + 1][y])
+                + (x == w - 1 || y == 0 ? 255 : gray[x + 1][y - 1])
+                + (x == w - 1 || y == h - 1 ? 255 : gray[x + 1][y + 1]);
+        return rs / 9;
+    }
+
 }
 
 

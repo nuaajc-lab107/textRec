@@ -5,6 +5,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import util.imgResize;
+import util.imgRotate;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,9 +20,15 @@ public class painterr extends Frame {
 
     JButton skip = new JButton("跳过");
     JButton ok = new JButton("确定");
+    ImageIcon sun = new ImageIcon("img/iconsun.png");
+    JButton shun = new JButton(sun);
+    JPanel newpanel = new JPanel();
+    JPanel paneldel = new JPanel();
     int i = 0;
+    int j = 0;
     String filepath = "D:\\test\\test.xls";
     boolean isExist = true;
+    boolean isShun = false;
 
     public painterr(String impath, int[] arr) {
 
@@ -73,6 +81,12 @@ public class painterr extends Frame {
         c.gridwidth = 1;
         jp.add(skip, c);
 
+        c.fill = GridBagConstraints.BOTH;
+        c.gridx = 5;
+        c.gridy = 1;
+        c.gridwidth = 1;
+        jp.add(shun,c);
+
         jp.setPreferredSize(new Dimension(500, 100));
 
         container.add(jp, BorderLayout.SOUTH);
@@ -81,12 +95,14 @@ public class painterr extends Frame {
             public void paintComponent(Graphics g) {
                 super.paintComponents(g);
 
+                String path = impath + arr[0] + ".png";
+                Image image = null;
                 try {
-                    Image image = ImageIO.read(new File(impath + arr[0] + ".png"));
-                    g.drawImage(image, 0, 0, null);
-                } catch (IOException e) {
+                    image = imgResize.remin(900,750,path);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
+                g.drawImage(image, 0, 0, null);
             }
         };
         container.add(JP, BorderLayout.CENTER);
@@ -130,37 +146,43 @@ public class painterr extends Frame {
                     System.out.println(nametx.getText());
 
                     JP.setVisible(false);
+                    paneldel.setVisible(false);
+                    j =0;
+                    isShun = false;
 
                     if(isExist) {
                         i++;
                     }
-                    JPanel imagePanel = new JPanel() {
+                    newpanel = new JPanel() {
                         public void paintComponent(Graphics g) {
                             super.paintComponents(g);
 
                             try {
-                                if (arr[i] != 0) {
-                                    Image image = ImageIO.read(new File(impath + arr[i] + ".png"));
-                                    g.drawImage(image, 0, 0, null);
-                                } else if (i > arr.length) {
-                                    JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
-                                    Image image = ImageIO.read(new File("img/none.jpg"));
-                                    g.drawImage(image, 0, 0, null);
-                                    isExist = false;
-                                } else {
-                                    JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
-                                    Image image = ImageIO.read(new File("img/none.jpg"));
-                                    g.drawImage(image, 0, 0, null);
-                                    isExist = false;
+                                if (!isShun) {
+                                    if (arr[i] != 0) {
+                                        String path = impath + arr[i] + ".png";
+                                        Image image = imgResize.remin(900, 750, path);
+                                        g.drawImage(image, 0, 0, null);
+                                    } else if (i > arr.length) {
+                                        JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                                        Image image = ImageIO.read(new File("img/none.jpg"));
+                                        g.drawImage(image, 0, 0, null);
+                                        isExist = false;
+                                    } else {
+                                        JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                                        Image image = ImageIO.read(new File("img/none.jpg"));
+                                        g.drawImage(image, 0, 0, null);
+                                        isExist = false;
+                                    }
                                 }
 
-                            } catch (IOException e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
                     };
-                    container.add(imagePanel, BorderLayout.CENTER);
-                    System.out.println(i);
+                    container.add(newpanel, BorderLayout.CENTER);
+                    //System.out.println(i);
                     new PaintThread().start();
                 }
             }
@@ -181,23 +203,33 @@ public class painterr extends Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JP.setVisible(false);
+                paneldel.setVisible(false);
+                j =0;
+                isShun = false;
 
+                System.out.println("skip  i:"+i+"j:"+j);
 
-                JPanel imagePanel = new JPanel() {
+                newpanel = new JPanel() {
                     public void paintComponent(Graphics g) {
+                        System.out.println("skip"+i);
                         super.paintComponents(g);
 
                         try {
-                            if (arr[i] != 0) {
-                                Image image = ImageIO.read(new File(impath + arr[i] + ".png"));
-                                g.drawImage(image, 0, 0, null);
-                            } else {
-                                JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                            if (!isShun) {
+                                if (arr[i] != 0) {
+                                    //Image image = ImageIO.read(new File(impath + arr[i] + ".png"));
+                                    String path = impath + arr[i] + ".png";
+                                    Image image = imgResize.remin(900, 750, path);
+
+                                    g.drawImage(image, 0, 0, null);
+                                } else {
+                                    JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
                                     Image image = ImageIO.read(new File("img/none.jpg"));
                                     g.drawImage(image, 0, 0, null);
-                                isExist = false;
+                                    isExist = false;
+                                }
                             }
-                        } catch (IOException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -207,9 +239,9 @@ public class painterr extends Frame {
                     i++;
                 }
 
-                System.out.println(i);
-                container.add(imagePanel, BorderLayout.CENTER);
-                System.out.println(i);
+                //System.out.println(i);
+                container.add(newpanel, BorderLayout.CENTER);
+                //System.out.println(i);
                 new PaintThread().start();
             }
 
@@ -220,28 +252,58 @@ public class painterr extends Frame {
                 }
             }
         });
-    }
+
+        shun.addActionListener(new ActionListener() {
 
 
-    private BufferedImage mat2BI(Mat mat) {
-        int dataSize = mat.cols() * mat.rows() * (int) mat.elemSize();
-        byte[] data = new byte[dataSize];
-        mat.get(0, 0, data);
-        int type = mat.channels() == 1 ?
-                BufferedImage.TYPE_BYTE_GRAY : BufferedImage.TYPE_3BYTE_BGR;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                j++;
+                JP.setVisible(false);
+                newpanel.setVisible(false);
+                isShun = true;
 
-        if (type == BufferedImage.TYPE_3BYTE_BGR) {
-            for (int i = 0; i < dataSize; i += 3) {
-                byte blue = data[i + 0];
-                data[i + 0] = data[i + 2];
-                data[i + 2] = blue;
+                System.out.println("shun  i:"+i+"j:"+j);
+
+                paneldel = new JPanel() {
+                    public void paintComponent(Graphics g) {
+                        super.paintComponents(g);
+
+                        try {
+                            if (isShun) {
+                                if (arr[i] != 0) {
+
+                                    String path = impath + arr[i] + ".png";
+                                    Image image = imgRotate.imro(j, path);
+                                    System.out.println("shun" + i);
+                                    g.drawImage(image, 0, 0, null);
+                                } else {
+                                    JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                                    Image image = ImageIO.read(new File("img/none.jpg"));
+                                    g.drawImage(image, 0, 0, null);
+                                    isExist = false;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+
+                container.add(paneldel, BorderLayout.CENTER);
+
+                new newPaint().start();
             }
-        }
-        BufferedImage image = new BufferedImage(mat.cols(), mat.rows(), type);
-        image.getRaster().setDataElements(0, 0, mat.cols(), mat.rows(), data);
 
-        return image;
+            class newPaint extends Thread {
+                @Override
+                public void run() {
+                    jferr.repaint();
+                }
+            }
+
+        });
+
     }
-
-
 }
