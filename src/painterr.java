@@ -2,18 +2,15 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.opencv.core.Mat;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
 import util.imgResize;
 import util.imgRotate;
+import util.config;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class painterr extends Frame {
@@ -26,7 +23,7 @@ public class painterr extends Frame {
     JPanel paneldel = new JPanel();
     int i = 0;
     int j = 0;
-    String filepath = "D:\\test\\test.xls";
+    String filepath = config.getExopPath() + "\\fin.xls";
     boolean isExist = true;
     boolean isShun = false;
 
@@ -35,7 +32,6 @@ public class painterr extends Frame {
         JFrame jferr = new JFrame();
 
         Container container = jferr.getContentPane();
-        //jferr.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel jp = new JPanel();
         jp.setLayout(new GridBagLayout());
@@ -45,28 +41,24 @@ public class painterr extends Frame {
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 0;
         c.gridy = 0;
-        //c.weighty = 1;
         jp.add(num, c);
 
         JTextField numtx = new JTextField(20);
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 0;
-        //c.weighty = 1;
         jp.add(numtx, c);
 
         JLabel name = new JLabel("企业名称");
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 3;
         c.gridy = 0;
-        //c.weighty = 1;
         jp.add(name, c);
 
         JTextField nametx = new JTextField(20);
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 4;
         c.gridy = 0;
-        //c.weighty = 1;
         jp.add(nametx, c);
 
         c.fill = GridBagConstraints.BOTH;
@@ -85,7 +77,7 @@ public class painterr extends Frame {
         c.gridx = 5;
         c.gridy = 1;
         c.gridwidth = 1;
-        jp.add(shun,c);
+        jp.add(shun, c);
 
         jp.setPreferredSize(new Dimension(500, 100));
 
@@ -98,7 +90,7 @@ public class painterr extends Frame {
                 String path = impath + arr[0] + ".png";
                 Image image = null;
                 try {
-                    image = imgResize.remin(900,750,path);
+                    image = imgResize.remin(900, 750, path);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -142,15 +134,13 @@ public class painterr extends Frame {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    System.out.println(numtx.getText());
-                    System.out.println(nametx.getText());
 
                     JP.setVisible(false);
                     paneldel.setVisible(false);
-                    j =0;
+                    j = 0;
                     isShun = false;
 
-                    if(isExist) {
+                    if (isExist) {
                         i++;
                     }
                     newpanel = new JPanel() {
@@ -204,14 +194,32 @@ public class painterr extends Frame {
             public void actionPerformed(ActionEvent e) {
                 JP.setVisible(false);
                 paneldel.setVisible(false);
-                j =0;
+                j = 0;
                 isShun = false;
 
-                System.out.println("skip  i:"+i+"j:"+j);
+                try {
+                    FileInputStream fileInput = new FileInputStream(filepath);
+                    HSSFWorkbook workbook = new HSSFWorkbook(fileInput);
+                    fileInput.close();
+
+                    HSSFSheet sheet = workbook.getSheetAt(0);
+
+                    FileOutputStream out = new FileOutputStream(filepath);
+                    HSSFRow row = sheet.getRow(arr[i]);
+                    HSSFCell NUM = row.createCell(0);
+                    NUM.setCellValue("图片无法识别或不存在");
+                    HSSFCell NAME = row.createCell(1);
+                    NAME.setCellValue("图片无法识别或不存在");
+                    workbook.write(out);
+                    out.close();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
 
                 newpanel = new JPanel() {
                     public void paintComponent(Graphics g) {
-                        System.out.println("skip"+i);
                         super.paintComponents(g);
 
                         try {
@@ -263,8 +271,6 @@ public class painterr extends Frame {
                 newpanel.setVisible(false);
                 isShun = true;
 
-                System.out.println("shun  i:"+i+"j:"+j);
-
                 paneldel = new JPanel() {
                     public void paintComponent(Graphics g) {
                         super.paintComponents(g);
@@ -275,7 +281,6 @@ public class painterr extends Frame {
 
                                     String path = impath + arr[i] + ".png";
                                     Image image = imgRotate.imro(j, path);
-                                    System.out.println("shun" + i);
                                     g.drawImage(image, 0, 0, null);
                                 } else {
                                     JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);

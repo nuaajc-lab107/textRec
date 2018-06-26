@@ -43,7 +43,7 @@ public class imgResize {
         return end;
     }
 
-    public static Image remin(int width, int height, String path) throws Exception{
+    public static Image remin(int width, int height, String path) throws Exception {
 
         double sx = 0.0;
         double sy = 0.0;
@@ -58,9 +58,9 @@ public class imgResize {
         sx = (double) width / bi.getWidth();
         sy = (double) height / bi.getHeight();
 
-        if (bi.getWidth()>bi.getHeight()){
+        if (bi.getWidth() > bi.getHeight()) {
             sy = sx;
-        }else if (bi.getHeight()>=bi.getWidth()){
+        } else if (bi.getHeight() >= bi.getWidth()) {
             sx = sy;
         }
 

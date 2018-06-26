@@ -2,15 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bd74f68-9679-4c95-aca0-4c8b91fd8bb4" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/showResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/ImageDeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/ImageDeal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/MatDeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/MatDeal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/NameRec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/NameRec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/Num.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/NumRec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/NumRec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/dimg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/chooseFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/chooseFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/dealWin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/dealWin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/dorec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/dorec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2$PaintThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2$PaintThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3$PaintThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3$PaintThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$4$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$4$newPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$4$newPaint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/rep.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/rep.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/util/Num.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/util/Num.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/textRec/util/config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/util/config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chooseFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chooseFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dealWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dealWin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/painterr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/painterr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/Num.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Num.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/imgResize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imgResize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/imgRotate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imgRotate.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,17 +66,8 @@
       <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="painterr.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/painterr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="177" selection-start-line="177" selection-end-line="177" />
+            <state relative-caret-position="187">
+              <caret line="22" column="23" selection-start-line="18" selection-start-column="8" selection-end-line="22" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -63,8 +75,8 @@
       <file leaf-file-name="chooseFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chooseFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+            <state relative-caret-position="60">
+              <caret line="68" column="115" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="115" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,8 +87,72 @@
       <file leaf-file-name="dealWin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dealWin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="132" column="57" selection-start-line="132" selection-start-column="57" selection-end-line="132" selection-end-column="57" />
+            <state relative-caret-position="1309">
+              <caret line="146" column="28" lean-forward="true" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+              <folding>
+                <element signature="method#rep#0;class#dorec#0" />
+                <element signature="method#numRec#0;class#dorec#0" />
+                <element signature="class#rep#0" />
+                <element signature="class#numRec#0" />
+                <element signature="class#nameRec#0" />
+                <element signature="class#ImageDeal#0" />
+                <element signature="class#MatDeal#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/showResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="90" column="80" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="80" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="painterr.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/painterr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1">
+              <caret line="117" column="11" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setWin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/setWin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LayoutUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/LayoutUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/config.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding>
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,20 +160,8 @@
       <file leaf-file-name="Num.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/Num.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imgResize.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/imgResize.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -140,9 +204,14 @@
         <option value="$PROJECT_DIR$/src/util/Binary.java" />
         <option value="$PROJECT_DIR$/src/util/m2b.java" />
         <option value="$PROJECT_DIR$/src/util/imgResize.java" />
-        <option value="$PROJECT_DIR$/src/painterr.java" />
         <option value="$PROJECT_DIR$/src/test.java" />
+        <option value="$PROJECT_DIR$/src/painterr.java" />
+        <option value="$PROJECT_DIR$/src/util/config.java" />
+        <option value="$PROJECT_DIR$/src/setWin.java" />
+        <option value="$PROJECT_DIR$/src/chooseFile.java" />
+        <option value="$PROJECT_DIR$/src/util/Num.java" />
         <option value="$PROJECT_DIR$/src/dealWin.java" />
+        <option value="$PROJECT_DIR$/src/showResult.java" />
       </list>
     </option>
   </component>
@@ -172,9 +241,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,20 +261,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="textRec" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dealWin.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,6 +435,10 @@
       <workItem from="1529877229532" duration="5044000" />
       <workItem from="1529908804659" duration="603000" />
       <workItem from="1529914764725" duration="1356000" />
+      <workItem from="1529921726442" duration="449000" />
+      <workItem from="1529944681149" duration="4939000" />
+      <workItem from="1529949768915" duration="4560000" />
+      <workItem from="1529990325818" duration="4126000" />
     </task>
     <task id="LOCAL-00001" summary="更新了加载模式">
       <created>1528632959305</created>
@@ -395,7 +458,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138885000" />
+    <option name="totallyTimeSpent" value="152959000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -408,36 +471,35 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4995958" weight="0.3297491" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32780847" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.502021" side_tool="true" weight="0.3297491" />
-      <window_info anchor="right" id="Maven Projects" order="3" weight="0.32983023" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32596686" />
-      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.497979" weight="0.32780847" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32780847" />
+      <window_info anchor="right" id="Palette&#9;" order="10" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50282943" side_tool="true" weight="0.32780847" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32983023" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32536766" />
+      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.32780847" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297491" />
-      <window_info id="Capture Tool" order="2" />
+      <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" visible="true" weight="0.20937753" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32983023" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" visible="true" weight="0.22231205" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32983023" />
       <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
+      <window_info id="UI Designer" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Favorites" order="4" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" x="189" y="121" width="1095" height="495" id="Byte Code Viewer" order="4" type="FLOATING" />
+      <window_info anchor="right" x="189" y="121" width="1095" height="495" id="Byte Code Viewer" order="9" type="FLOATING" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2497979" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
@@ -485,34 +547,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="37" lean-forward="true" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
-          <caret line="140" column="38" selection-start-line="140" selection-start-column="38" selection-end-line="140" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
-          <caret line="140" column="38" lean-forward="true" selection-start-line="140" selection-start-column="38" selection-end-line="140" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="106" column="54" lean-forward="true" selection-start-line="106" selection-start-column="54" selection-end-line="106" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2108">
@@ -742,16 +776,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/imgRotate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="95" column="44" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/imgResize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="1003">
           <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -759,31 +786,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Num.java">
+    <entry file="file://$PROJECT_DIR$/src/util/imgRotate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        <state relative-caret-position="1411">
+          <caret line="95" column="44" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
+    <entry file="file://$PROJECT_DIR$/src/util/LayoutUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+        <state relative-caret-position="204">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Num.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding>
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/painterr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="177" selection-start-line="177" selection-end-line="177" />
+        <state relative-caret-position="-1">
+          <caret line="117" column="11" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chooseFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+        <state relative-caret-position="60">
+          <caret line="68" column="115" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="115" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="23" selection-start-line="18" selection-start-column="8" selection-end-line="22" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setWin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/showResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="90" column="80" selection-start-line="90" selection-start-column="80" selection-end-line="90" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -792,8 +864,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dealWin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="132" column="57" selection-start-line="132" selection-start-column="57" selection-end-line="132" selection-end-column="57" />
+        <state relative-caret-position="1309">
+          <caret line="146" column="28" lean-forward="true" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+          <folding>
+            <element signature="method#rep#0;class#dorec#0" />
+            <element signature="method#numRec#0;class#dorec#0" />
+            <element signature="class#rep#0" />
+            <element signature="class#numRec#0" />
+            <element signature="class#nameRec#0" />
+            <element signature="class#ImageDeal#0" />
+            <element signature="class#MatDeal#0" />
+          </folding>
         </state>
       </provider>
     </entry>

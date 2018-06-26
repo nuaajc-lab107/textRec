@@ -16,7 +16,7 @@ import java.io.File;
 
 public class imgRotate {
 
-    public static Image imro(int[] arrx , int i, int j, String impathx){
+    public static Image imro(int[] arrx, int i, int j, String impathx) {
 
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
@@ -24,20 +24,20 @@ public class imgRotate {
         Mat src = Imgcodecs.imread(path);
         Mat dst1 = src.clone();
 
-        Point center =new Point(src.width()/2,src.height()/2);
-        Mat affineTrans=Imgproc.getRotationMatrix2D(center, 90.0*j, 1.0);
+        Point center = new Point(src.width() / 2, src.height() / 2);
+        Mat affineTrans = Imgproc.getRotationMatrix2D(center, 90.0 * j, 1.0);
 
         Size size = new Size();
 
-        if (j%2 == 0|| j == 0){
-            size = new Size(src.height(),src.width());
-        }else{
+        if (j % 2 == 0 || j == 0) {
+            size = new Size(src.height(), src.width());
+        } else {
             size = src.size();
         }
 
-        Imgproc.warpAffine(src, dst1, affineTrans, size ,Imgproc.INTER_NEAREST);
+        Imgproc.warpAffine(src, dst1, affineTrans, size, Imgproc.INTER_NEAREST);
         System.out.println(size);
-        Imgcodecs.imwrite("img/new.jpg",dst1);
+        Imgcodecs.imwrite("img/new.jpg", dst1);
 
         Image image = m2b.mat2BI(dst1);
 
@@ -60,7 +60,7 @@ public class imgRotate {
 
         BufferedImage bi = ImageIO.read(file);
 
-        int degree = 90*j;
+        int degree = 90 * j;
         degree = degree % 360;
         if (degree < 0)
             degree = 360 + degree;
@@ -94,9 +94,9 @@ public class imgRotate {
                 AffineTransformOp.TYPE_BICUBIC);
         spinImage = op.filter(bi, spinImage);
         File sf = new File("img/temp1.png");
-        ImageIO.write(spinImage,"png",sf);
+        ImageIO.write(spinImage, "png", sf);
 
-        Image fina = imgResize.remin(900,750,"img/temp1.png");
+        Image fina = imgResize.remin(900, 750, "img/temp1.png");
 
         return fina;
 

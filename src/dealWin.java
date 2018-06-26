@@ -1,6 +1,10 @@
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -14,11 +18,15 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class dealWin extends JFrame implements ChangeListener {
+public class dealWin extends JFrame implements ChangeListener ,ActionListener {
 
     Num nu = new Num();
     JButton allBT = new JButton("取消");
@@ -26,8 +34,17 @@ public class dealWin extends JFrame implements ChangeListener {
     JScrollPane jsp = new JScrollPane(txtlog);
     JProgressBar progressBar = new JProgressBar(0, 100);
     String imageFile = config.getInputPath() + "\\";
+    String filepath = config.getExopPath() + "\\fin.xls";
+    HSSFWorkbook workbook = new HSSFWorkbook();
+    HSSFSheet sheet = workbook.createSheet("test");
 
     public dealWin() {
+
+        File exop = new File(config.getExopPath());
+        if (!exop.exists()) {
+            exop.mkdirs();
+        }
+
         JFrame jf = new JFrame();
         Container container = jf.getContentPane();
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -39,13 +56,10 @@ public class dealWin extends JFrame implements ChangeListener {
 
         txtlog.setEditable(false);
         progressBar.setStringPainted(true);
-        //progressBar.setSize(new Dimension(500,20));
-        //progressBar.setPreferredSize(new Dimension(400, 20));
         progressBar.setBorderPainted(true);
         progressBar.setBackground(Color.pink);
-        //p.add(progressBar);
-        LayoutUtil.add(p, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 0, 0, 1, 1, progressBar,new Insets(60,50,0,50));
-        LayoutUtil.add(p,GridBagConstraints.BOTH,GridBagConstraints.CENTER,1,1,0,1,1,1,jsp,new Insets(50,45,50,45));
+        LayoutUtil.add(p, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 0, 0, 1, 1, progressBar, new Insets(60, 50, 0, 50));
+        LayoutUtil.add(p, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 1, 1, 0, 1, 1, 1, jsp, new Insets(50, 45, 50, 45));
 
         container.add(p, BorderLayout.CENTER);
 
@@ -63,18 +77,75 @@ public class dealWin extends JFrame implements ChangeListener {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.show();
 
-        new Thread(new numRec(nu, imageFile)).start();
-        new Thread(new nameRec(nu, imageFile)).start();
-        new Thread(new rep(nu,progressBar,txtlog,jsp)).start();
 
+        sheet.setColumnWidth(0, 30 * 256);
+        sheet.setColumnWidth(1, 30 * 256);
+        HSSFRow osisjdjs = sheet.createRow(0);
+        HSSFCell numtop = osisjdjs.createCell(0);
+        numtop.setCellValue("企业注册号");
+        HSSFCell nametop = osisjdjs.createCell(1);
+        nametop.setCellValue("企业名称");
+
+
+        Thread a = new Thread(new rep(nu, progressBar, txtlog, jsp));
+        Thread b = new Thread(new numRec(nu, imageFile));
+        Thread c = new Thread(new nameRec(nu, imageFile));
+
+
+        a.start();
+        b.start();
+        c.start();
+
+        while (progressBar.getValue() == 100) {
+            a.destroy();
+            b.destroy();
+            c.destroy();
+        }
+
+        allBT.addActionListener(this);
     }
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        if (progressBar.getValue() == 100){
-            if (nu.exp[0]!=0) {
-                new painterr(imageFile + "\\", nu.exp);
-                allBT.setText("查看结果");
+        if (progressBar.getValue() == 100) {
+            /*for (int i = 0; i < nu.exp.length; i++) {
+                if (nu.exp[i] != 0)
+                    System.out.println(nu.exp[i]);//txtLog.append(nu.exp[i]+" ");
+            }*/
+            allBT.setText("查看结果");
+            for (int i = 1; i <= 51; i++) {
+
+                FileOutputStream out = null;
+                try {
+                    out = new FileOutputStream(filepath);
+                    HSSFRow row = sheet.createRow(i);
+                    HSSFCell NUM = row.createCell(0);
+                    NUM.setCellValue(nu.numarr[i]);
+                    HSSFCell NAME = row.createCell(1);
+                    NAME.setCellValue(nu.namearr[i]);
+                    workbook.write(out);
+                    out.close();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+        if (source == allBT){
+            if (allBT.getText().equals("取消")){
+                int y = JOptionPane.showConfirmDialog(this, "确定要退出吗？", "", JOptionPane.YES_NO_OPTION);
+
+                if (y == 0)
+                    System.exit(0);
+            }else if (allBT.getText().equals("查看结果")){
+                this.hide();
+                new showResult(nu,imageFile);
             }
         }
     }
@@ -86,19 +157,19 @@ class dorec {
     private static Object synObj = new Object();
 
     public void rep(Num num, JProgressBar progressBar, JTextArea txtlog, JScrollPane jsp) throws InterruptedException {
-        while (true){
+        while (true) {
             synchronized (synObj) {
-                while (flag != 1) {
+                while (flag != 3) {
                     synObj.wait();
                 }
                 Dimension d = progressBar.getSize();
-                Rectangle rect = new Rectangle(0, 0, d.width,d.height);
+                Rectangle rect = new Rectangle(0, 0, d.width, d.height);
                 progressBar.setValue(num.valueb);
                 progressBar.paintImmediately(rect);
                 txtlog.append(num.numarr[num.i]);
                 txtlog.append(num.namearr[num.i]);
                 jsp.getVerticalScrollBar().setValue(jsp.getVerticalScrollBar().getMaximum());
-                flag = 2;
+                flag = 1;
                 synObj.notifyAll();
             }
         }
@@ -110,13 +181,13 @@ class dorec {
 
         for (int i = 1; i <= 50; i++) {
             synchronized (synObj) {
-                while (flag != 2) {
+                while (flag != 1) {
                     synObj.wait();
                 }
                 try {
                     BufferedImage bufferedImage;
 
-                    bufferedImage = ImageIO.read(new File(path + i + ".jpg"));
+                    bufferedImage = ImageIO.read(new File("temp/" + i + ".jpg"));
 
                     Rectangle rect = new Rectangle(0, 0, 450, 40);
                     String result = instance.doOCR(bufferedImage, rect);
@@ -134,9 +205,6 @@ class dorec {
 
                         //System.out.println(numlast);
                         num.numarr[i] = numlast;
-
-                        num.exp[num.j] = i;
-                        num.j++;
                     }
 
                 } catch (IOException e) {
@@ -144,7 +212,7 @@ class dorec {
                 } catch (TesseractException e) {
                     e.printStackTrace();
                 }
-                flag = 3;
+                flag = 2;
                 synObj.notifyAll();
             }
         }
@@ -155,37 +223,34 @@ class dorec {
         instance.setLanguage("chi_sim");
         for (int i = 1; i <= 50; i++) {
             synchronized (synObj) {
-                while (flag != 3) {
+                while (flag != 2) {
                     synObj.wait();
                 }
                 try {
                     BufferedImage bufferedImage;
 
-                    bufferedImage = ImageIO.read(new File(path + i + ".jpg"));
+                    bufferedImage = ImageIO.read(new File("temp/" + i + ".jpg"));
 
-                    Rectangle rect = new Rectangle(0, 40, 600, 40);
+                    Rectangle rect = new Rectangle(105, 40, 600, 40);
                     String result = instance.doOCR(bufferedImage, rect);
 
                     String str = result.replace(" 二 ", ":");
                     String stro = str.replace("二 ", ":");
 
-                    //System.out.print(stro);
+                    /*System.out.print(result);*/
 
                     String name, namelast;
 
-                    if (stro.contains(":")) {
+                    if (stro.contains("公司")) {
                         int start = stro.indexOf(':');
-
                         name = stro.substring(start + 1);
-
                         namelast = fix.fixnum(name);
-                        //System.out.println(namelast);
                         num.namearr[i] = namelast;
                     } else {
                         namelast = "error! picture wrong";
-
-                        System.out.println(namelast);
                         num.namearr[i] = namelast;
+                        num.exp[num.j] = i;
+                        num.j++;
                     }
 
                 } catch (IOException e) {
@@ -195,7 +260,7 @@ class dorec {
                 }
                 num.i = i;
                 num.valueb += 2;
-                flag = 1;
+                flag = 3;
                 synObj.notifyAll();
             }
         }
@@ -219,7 +284,7 @@ class rep implements Runnable {
     @Override
     public void run() {
         try {
-            new dorec().rep(num,jProgressBar, txtlog,jsp);
+            new dorec().rep(num, jProgressBar, txtlog, jsp);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -298,7 +363,7 @@ class ImageDeal implements Runnable {
 
                         newBufferedImage.createGraphics().drawImage(bufferedImage, 0, 0, Color.WHITE, null);
 
-                        ImageIO.write(newBufferedImage, "jpg", new File(path + num.i + "n.jpg"));
+                        ImageIO.write(newBufferedImage, "jpg", new File("temp/" + num.i + "n.jpg"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -334,10 +399,10 @@ class MatDeal implements Runnable {
                     }
                 } else {
                     System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-                    Mat src = Imgcodecs.imread(path + num.i + "n.jpg");
+                    Mat src = Imgcodecs.imread("temp/" + num.i + "n.jpg");
                     Mat dst = new Mat();
                     Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
-                    Imgcodecs.imwrite(path + num.i + ".jpg", dst);
+                    Imgcodecs.imwrite("temp/" + num.i + ".jpg", dst);
                     num.i++;
                     num.flag = false;
                     num.notify();
