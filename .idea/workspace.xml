@@ -7,43 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd74f68-9679-4c95-aca0-4c8b91fd8bb4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/unnamed.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/opencv_340.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/poi_bin_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/tess4j_3_4_6.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/ImageDeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/ImageDeal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/MatDeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/MatDeal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/NameRec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/NameRec.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/NumRec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/NumRec.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/chooseFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/chooseFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/dealWin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/dealWin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/dorec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/dorec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2$PaintThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2$PaintThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3$PaintThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3$PaintThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$4$newPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$4$newPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/painterr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/painterr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/textRec/rep.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/rep.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/setWin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/setWin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/showResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/showResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/textRec/util/config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/textRec/util/config.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chooseFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chooseFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dealWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dealWin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/painterr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/painterr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/setWin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/showResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/showResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textRec.iml" beforeDir="false" afterPath="$PROJECT_DIR$/textRec.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,17 +50,17 @@
       <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="170">
               <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setWin.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="setWin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/setWin.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+              <caret line="69" column="35" lean-forward="true" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,8 +71,8 @@
       <file leaf-file-name="chooseFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chooseFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="92" column="40" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
+            <state relative-caret-position="1122">
+              <caret line="118" column="30" lean-forward="true" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dealWin.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dealWin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dealWin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="217" column="46" selection-start-line="217" selection-start-column="46" selection-end-line="217" selection-end-column="46" />
+            <state relative-caret-position="459">
+              <caret line="218" column="40" selection-start-line="218" selection-start-column="40" selection-end-line="218" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#rep#0;class#dorec#0" />
@@ -126,7 +98,7 @@
       <file leaf-file-name="showResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/showResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
+            <state relative-caret-position="629">
               <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -138,18 +110,8 @@
       <file leaf-file-name="config.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
+            <state relative-caret-position="374">
               <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-              <folding>
-                <element signature="e#573#574#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#815#816#0" expanded="true" />
-                <element signature="e#845#846#0" expanded="true" />
-                <element signature="e#821#822#0" expanded="true" />
-                <element signature="e#847#848#0" expanded="true" />
-                <element signature="e#895#896#0" expanded="true" />
-                <element signature="e#921#922#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -186,11 +148,12 @@
         <option value="$PROJECT_DIR$/src/util/Num.java" />
         <option value="$PROJECT_DIR$/src/painterr.java" />
         <option value="$PROJECT_DIR$/src/test.java" />
-        <option value="$PROJECT_DIR$/src/chooseFile.java" />
         <option value="$PROJECT_DIR$/src/showResult.java" />
         <option value="$PROJECT_DIR$/src/util/config.java" />
-        <option value="$PROJECT_DIR$/src/setWin.java" />
         <option value="$PROJECT_DIR$/src/dealWin.java" />
+        <option value="$PROJECT_DIR$/src/util/secDeal.java" />
+        <option value="$PROJECT_DIR$/src/chooseFile.java" />
+        <option value="$PROJECT_DIR$/src/setWin.java" />
       </list>
     </option>
   </component>
@@ -220,19 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="textRec" type="58d84e3e:PackageViewProjectNode" />
-              <item name="textRec" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,18 +203,25 @@
             </path>
             <path>
               <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="textRec" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dealWin.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="textRec" type="58d84e3e:PackageViewProjectNode" />
+              <item name="textRec" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -439,6 +396,9 @@
       <workItem from="1529949768915" duration="4560000" />
       <workItem from="1529990325818" duration="13038000" />
       <workItem from="1530009934224" duration="16592000" />
+      <workItem from="1530074251667" duration="840000" />
+      <workItem from="1530089758744" duration="653000" />
+      <workItem from="1530093966719" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="更新了加载模式">
       <created>1528632959305</created>
@@ -458,7 +418,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178463000" />
+    <option name="totallyTimeSpent" value="180111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,28 +442,60 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50282943" side_tool="true" weight="0.32780847" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32983023" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" visible="true" weight="0.30018416" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32412523" />
-      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.30018416" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3296501" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" visible="true" weight="0.22554567" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" weight="0.16814874" />
       <window_info anchor="right" id="Database" order="6" weight="0.32983023" />
       <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Favorites" order="4" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
+      <window_info id="Favorites" order="4" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="8" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" x="189" y="121" width="1095" height="495" id="Byte Code Viewer" order="9" type="FLOATING" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2497979" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.30018416" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3296501" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50282943" side_tool="true" weight="0.32780847" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32780847" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2497979" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32412523" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32983023" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4982079" visible="true" weight="0.16814874" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32983023" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" x="189" y="121" width="1095" height="495" id="Byte Code Viewer" order="9" type="FLOATING" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4995958" weight="0.3297491" />
+      <window_info anchor="right" id="Palette&#9;" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -553,13 +545,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="96" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -765,9 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -796,33 +778,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2244">
           <caret line="134" column="50" lean-forward="true" selection-start-line="134" selection-start-column="50" selection-end-line="134" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="170">
           <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="374">
           <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding>
-            <element signature="e#573#574#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#821#822#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#921#922#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,9 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="577">
           <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,19 +816,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/setWin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/showResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
+        <state relative-caret-position="629">
           <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -870,25 +826,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/secDeal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dealWin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="218" column="40" selection-start-line="218" selection-start-column="40" selection-end-line="218" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#rep#0;class#dorec#0" />
+            <element signature="class#rep#0" />
+            <element signature="class#ImageDeal#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/chooseFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="92" column="40" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
+        <state relative-caret-position="1122">
+          <caret line="118" column="30" lean-forward="true" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dealWin.java">
+    <entry file="file://$PROJECT_DIR$/src/setWin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="217" column="46" selection-start-line="217" selection-start-column="46" selection-end-line="217" selection-end-column="46" />
+        <state relative-caret-position="85">
+          <caret line="69" column="35" lean-forward="true" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#rep#0;class#dorec#0" />
-            <element signature="class#rep#0" />
-            <element signature="class#ImageDeal#0" />
           </folding>
         </state>
       </provider>

@@ -112,19 +112,19 @@ public class chooseFile extends JFrame implements ActionListener {
                 temp.mkdirs();
                 setWin win = new setWin();
                 win.setTitle("高级设置");
-                win.setBounds(500, 250, 700, 700);
+                win.setBounds(500, 275, 700, 600);
                 win.show();
             } else if (!imop.exists()) {
                 imop.mkdirs();
                 temp.mkdirs();
                 setWin win = new setWin();
                 win.setTitle("高级设置");
-                win.setBounds(500, 250, 700, 700);
+                win.setBounds(500, 275, 700, 600);
                 win.show();
             } else {
                 setWin win = new setWin();
                 win.setTitle("高级设置");
-                win.setBounds(500, 250, 700, 700);
+                win.setBounds(500, 275, 700, 600);
                 win.show();
             }
         }
