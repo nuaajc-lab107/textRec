@@ -9,6 +9,7 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import sun.net.www.protocol.http.HttpURLConnection;
 import util.LayoutUtil;
 import util.Num;
 import util.config;
@@ -151,6 +152,7 @@ class dorec {
 
     private static int flag = 1;
     private static Object synObj = new Object();
+    private static boolean useful = true;
 
     public void rep(Num num, JProgressBar progressBar, JTextArea txtlog, JScrollPane jsp) throws InterruptedException {
         while (true) {
@@ -192,15 +194,12 @@ class dorec {
 
                     if (result.contains(":")) {
                         numfi = result.substring(14);
-
-                        //System.out.println(numfi);
                         num.numarr[i] = numfi;
-
+                        useful = true;
                     } else {
                         numlast = "error! picture wrong";
-
-                        //System.out.println(numlast);
                         num.numarr[i] = numlast;
+                        useful = false;
                     }
 
                 } catch (IOException e) {
@@ -222,42 +221,53 @@ class dorec {
                 while (flag != 2) {
                     synObj.wait();
                 }
-                try {
-                    BufferedImage bufferedImage;
+                if (useful) {
+                    try {
+                        BufferedImage bufferedImage;
 
-                    bufferedImage = ImageIO.read(new File(config.tempPath()+"\\" + i + ".jpg"));
+                        bufferedImage = ImageIO.read(new File(config.tempPath() + "\\" + i + ".jpg"));
 
-                    Rectangle rect = new Rectangle(105, 40, 600, 40);
-                    String result = instance.doOCR(bufferedImage, rect);
+                        Rectangle rect = new Rectangle(105, 40, 600, 40);
+                        String result = instance.doOCR(bufferedImage, rect);
 
-                    String str = result.replace(" 二 ", ":");
-                    String stro = str.replace("二 ", ":");
+                        String str = result.replace(" 二 ", ":");
+                        String stro = str.replace("二 ", ":");
 
-                    /*System.out.print(result);*/
+                        /*System.out.print(result);*/
 
-                    String name, namelast;
+                        String name, namelast;
 
-                    if (stro.contains("公司")) {
-                        int start = stro.indexOf(':');
-                        name = stro.substring(start + 1);
-                        namelast = fix.fixnum(name);
-                        num.namearr[i] = namelast;
-                    } else {
-                        namelast = "error! picture wrong";
-                        num.namearr[i] = namelast;
-                        num.exp[num.j] = i;
-                        num.j++;
+                        if (stro.contains("公司")) {
+                            int start = stro.indexOf(':');
+                            name = stro.substring(start + 1);
+                            namelast = fix.fixnum(name);
+                            num.namearr[i] = namelast;
+                        } else {
+                            namelast = "error! picture wrong";
+                            num.namearr[i] = namelast;
+                            num.exp[num.j] = i;
+                            num.j++;
+                        }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (TesseractException e) {
+                        e.printStackTrace();
                     }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (TesseractException e) {
-                    e.printStackTrace();
+                    num.i = i;
+                    num.valueb += 2;
+                    flag = 3;
+                    synObj.notifyAll();
+                }else {
+                    num.namearr[i] = "error! picture wrong";
+                    num.exp[num.j] = i;
+                    num.j++;
+                    num.i = i;
+                    num.valueb += 2;
+                    flag = 3;
+                    synObj.notifyAll();
+                    useful =true;
                 }
-                num.i = i;
-                num.valueb += 2;
-                flag = 3;
-                synObj.notifyAll();
             }
         }
     }

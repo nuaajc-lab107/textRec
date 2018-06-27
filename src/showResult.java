@@ -27,7 +27,7 @@ public class showResult extends JFrame implements ActionListener {
         int x = 0;
         for (int i = 0; i < nu.exp.length; i++) {
             if (nu.exp[i] != 0)
-                x = i;
+                x = i + 1;
         }
 
         JFrame jf = new JFrame();
