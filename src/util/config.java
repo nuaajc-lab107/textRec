@@ -3,8 +3,10 @@ package util;
 public class config {
 
     static String inputPath = "";
-    static String exopPath = "C:\\Users\\Aye10032\\Documents\\textRec";
-    static String imopPath = "C:\\Users\\Aye10032\\Documents\\textRec\\err";
+    static String exopPath = "D:\\textRec";
+    static String imopPath = "D:\\textRec\\err";
+    static String tempPath = "D:\\textRec\\temp";
+    static int flag = 1;
 
     public static String getInputPath() {
         return inputPath;
@@ -28,5 +30,17 @@ public class config {
 
     public static void setImopPath(String imoppath) {
         inputPath = imoppath;
+    }
+
+    public static String tempPath(){
+        return tempPath;
+    }
+
+    public static int getFlag(){
+        return flag;
+    }
+
+    public static void setFlag(int f){
+        flag = f;
     }
 }

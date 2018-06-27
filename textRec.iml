@@ -7,10 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="tess4j-3.4.6" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="poi-bin-3" level="project" />
-    <orderEntry type="library" name="opencv-340" level="project" />
     <orderEntry type="library" name="forJar" level="project" />
+    <orderEntry type="library" name="libs" level="project" />
   </component>
 </module>

@@ -101,6 +101,7 @@ public class painterr extends Frame {
 
 
         jferr.setSize(900, 900);
+        jferr.setTitle("存疑图片校对");
         jferr.show();
 
         ok.addActionListener(new ActionListener() {
@@ -113,28 +114,29 @@ public class painterr extends Frame {
                 else {
                     String numlast = numtx.getText();
                     String namelast = nametx.getText();
-                    try {
-                        FileInputStream fileInput = new FileInputStream(filepath);
-                        HSSFWorkbook workbook = new HSSFWorkbook(fileInput);
-                        fileInput.close();
+                    if (arr[i] != 0) {
+                        try {
+                            FileInputStream fileInput = new FileInputStream(filepath);
+                            HSSFWorkbook workbook = new HSSFWorkbook(fileInput);
+                            fileInput.close();
 
-                        HSSFSheet sheet = workbook.getSheetAt(0);
+                            HSSFSheet sheet = workbook.getSheetAt(0);
 
-                        FileOutputStream out = new FileOutputStream(filepath);
-                        HSSFRow row = sheet.getRow(arr[i]);
-                        HSSFCell NUM = row.createCell(0);
-                        NUM.setCellValue(numlast);
-                        HSSFCell NAME = row.createCell(1);
-                        NAME.setCellValue(namelast);
-                        workbook.write(out);
-                        out.close();
+                            FileOutputStream out = new FileOutputStream(filepath);
+                            HSSFRow row = sheet.getRow(arr[i]);
+                            HSSFCell NUM = row.createCell(0);
+                            NUM.setCellValue(numlast);
+                            HSSFCell NAME = row.createCell(1);
+                            NAME.setCellValue(namelast);
+                            workbook.write(out);
+                            out.close();
 
-                    } catch (FileNotFoundException e1) {
-                        e1.printStackTrace();
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
+                        } catch (FileNotFoundException e1) {
+                            e1.printStackTrace();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
                     }
-
                     JP.setVisible(false);
                     paneldel.setVisible(false);
                     j = 0;
@@ -183,7 +185,6 @@ public class painterr extends Frame {
                     numtx.setText("");
                     nametx.setText("");
                     jferr.repaint();
-                    //System.out.println("ok");
                 }
             }
         });
@@ -192,10 +193,6 @@ public class painterr extends Frame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                JP.setVisible(false);
-                paneldel.setVisible(false);
-                j = 0;
-                isShun = false;
 
                 try {
                     FileInputStream fileInput = new FileInputStream(filepath);
@@ -243,13 +240,17 @@ public class painterr extends Frame {
                     }
                 };
 
+                JP.setVisible(false);
+                paneldel.setVisible(false);
+                j = 0;
+                isShun = false;
+
                 if (isExist) {
                     i++;
                 }
 
-                //System.out.println(i);
                 container.add(newpanel, BorderLayout.CENTER);
-                //System.out.println(i);
+
                 new PaintThread().start();
             }
 

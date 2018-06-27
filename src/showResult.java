@@ -15,6 +15,7 @@ public class showResult extends JFrame implements ActionListener {
     JButton fiJB = new JButton("打开文件夹");
     JButton imJB = new JButton("未识别图片");
     JButton reJB = new JButton("重新开始");
+    JButton fin = new JButton("完成");
 
     Num nu;
     String imageFile;
@@ -34,23 +35,24 @@ public class showResult extends JFrame implements ActionListener {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel p = new JPanel();
-        p.setBorder(BorderFactory.createEtchedBorder());
+        //p.setBorder(BorderFactory.createEtchedBorder());
         p.setLayout(new GridBagLayout());
 
         LayoutUtil.add(p,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,0,1,1,new JLabel("本次共识别图片 50 张"));
-        LayoutUtil.add(p,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,1,1,1,new JLabel("其中不确定 "+ x +" 张"));
-        LayoutUtil.add(p,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,2,1,1,new JLabel("无法识别 1 张"));
+        LayoutUtil.add(p,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,1,1,1,new JLabel("其中存疑 "+ x +" 张"));
 
         container.add(p, BorderLayout.CENTER);
 
         JPanel pd = new JPanel();
-        pd.setBorder(BorderFactory.createLoweredBevelBorder());
-        pd.setLayout(new GridBagLayout());
+        //pd.setBorder(BorderFactory.createLoweredBevelBorder());
+        pd.setLayout(new GridLayout(2,3,10,5));
 
-        LayoutUtil.add(pd,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,0,1,1,imJB);
-        LayoutUtil.add(pd,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,1,0,1,1,exJB);
-        LayoutUtil.add(pd,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,1,1,1,fiJB);
-        LayoutUtil.add(pd,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,1,1,1,1,reJB);
+        pd.add(fiJB);
+        pd.add(exJB);
+        pd.add(imJB);
+        pd.add(new JLabel());
+        pd.add(reJB);
+        pd.add(fin);
 
         container.add(pd,BorderLayout.SOUTH);
 
@@ -63,6 +65,7 @@ public class showResult extends JFrame implements ActionListener {
         exJB.addActionListener(this);
         fiJB.addActionListener(this);
         reJB.addActionListener(this);
+        fin.addActionListener(this);
     }
 
     @Override
@@ -97,6 +100,51 @@ public class showResult extends JFrame implements ActionListener {
                 window1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 window1.show();
             }
+        }else if (source == fin){
+            delAllFile(config.tempPath());
+            System.exit(0);
+        }
+    }
+
+    public static boolean delAllFile(String path) {
+        boolean flag = false;
+        File file = new File(path);
+        if (!file.exists()) {
+            return flag;
+        }
+        if (!file.isDirectory()) {
+            return flag;
+        }
+        String[] tempList = file.list();
+        File temp = null;
+        for (int i = 0; i < tempList.length; i++) {
+            if (path.endsWith(File.separator)) {
+                temp = new File(path + tempList[i]);
+            } else {
+                temp = new File(path + File.separator + tempList[i]);
+            }
+            if (temp.isFile()) {
+                temp.delete();
+            }
+            if (temp.isDirectory()) {
+                delAllFile(path + "\\" + tempList[i]);
+                delFolder(path + "\\" + tempList[i]);
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+    public static void delFolder(String folderPath) {
+        try {
+            delAllFile(folderPath);
+            String filePath = folderPath;
+            filePath = filePath.toString();
+            java.io.File myFilePath = new java.io.File(filePath);
+            myFilePath.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
+

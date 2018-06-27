@@ -65,21 +65,34 @@ public class chooseFile extends JFrame implements ActionListener {
             if (inputJF.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "请正确选择目录！", "warning", JOptionPane.YES_NO_OPTION);
             } else {
+                File exop = new File(config.getExopPath());
+                File imop = new File(config.getImopPath());
+                File temp = new File(config.tempPath());
+                if (!exop.exists()) {
+                    exop.mkdirs();
+                    imop.mkdirs();
+                    temp.mkdirs();
 
-                int y = JOptionPane.showConfirmDialog(null, "您选择的目录是：" + imageFile, "", JOptionPane.YES_NO_OPTION);
+                } else if (!imop.exists()) {
+                    imop.mkdirs();
+                    temp.mkdirs();
 
-                try {
-                    imageDeal.t.join();
-                    matDeal.t.join();
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }
+                } else {
 
-                if (y == 0) {
-                    if (!matDeal.t.isAlive()) {
-                        System.out.println(y);
-                        this.hide();
-                        new dealWin();
+                    int y = JOptionPane.showConfirmDialog(null, "您选择的目录是：" + imageFile, "", JOptionPane.YES_NO_OPTION);
+
+                    try {
+                        imageDeal.t.join();
+                        matDeal.t.join();
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    if (y == 0) {
+                        if (!matDeal.t.isAlive()) {
+                            this.hide();
+                            new dealWin();
+                        }
                     }
                 }
             }
@@ -92,15 +105,18 @@ public class chooseFile extends JFrame implements ActionListener {
         } else if (source == setJB) {
             File exop = new File(config.getExopPath());
             File imop = new File(config.getImopPath());
+            File temp = new File(config.tempPath());
             if (!exop.exists()) {
                 exop.mkdirs();
                 imop.mkdirs();
+                temp.mkdirs();
                 setWin win = new setWin();
                 win.setTitle("高级设置");
                 win.setBounds(500, 250, 700, 700);
                 win.show();
             } else if (!imop.exists()) {
                 imop.mkdirs();
+                temp.mkdirs();
                 setWin win = new setWin();
                 win.setTitle("高级设置");
                 win.setBounds(500, 250, 700, 700);

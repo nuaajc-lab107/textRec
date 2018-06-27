@@ -50,6 +50,7 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel p = new JPanel();
+        p.setBorder(BorderFactory.createEtchedBorder());
         p.setLayout(new GridBagLayout());
 
         progressBar.addChangeListener(this);
@@ -64,7 +65,6 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
         container.add(p, BorderLayout.CENTER);
 
         JPanel pd = new JPanel();
-        pd.setBorder(BorderFactory.createLoweredBevelBorder());
         pd.setLayout(new GridBagLayout());
 
         LayoutUtil.add(pd, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 0, 0, 3, 1, new JLabel());
@@ -108,10 +108,6 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
     @Override
     public void stateChanged(ChangeEvent e) {
         if (progressBar.getValue() == 100) {
-            /*for (int i = 0; i < nu.exp.length; i++) {
-                if (nu.exp[i] != 0)
-                    System.out.println(nu.exp[i]);//txtLog.append(nu.exp[i]+" ");
-            }*/
             allBT.setText("查看结果");
             for (int i = 1; i <= 51; i++) {
 
@@ -187,7 +183,7 @@ class dorec {
                 try {
                     BufferedImage bufferedImage;
 
-                    bufferedImage = ImageIO.read(new File("temp/" + i + ".jpg"));
+                    bufferedImage = ImageIO.read(new File(config.tempPath()+"\\" + i + ".jpg"));
 
                     Rectangle rect = new Rectangle(0, 0, 450, 40);
                     String result = instance.doOCR(bufferedImage, rect);
@@ -229,7 +225,7 @@ class dorec {
                 try {
                     BufferedImage bufferedImage;
 
-                    bufferedImage = ImageIO.read(new File("temp/" + i + ".jpg"));
+                    bufferedImage = ImageIO.read(new File(config.tempPath()+"\\" + i + ".jpg"));
 
                     Rectangle rect = new Rectangle(105, 40, 600, 40);
                     String result = instance.doOCR(bufferedImage, rect);
@@ -363,7 +359,7 @@ class ImageDeal implements Runnable {
 
                         newBufferedImage.createGraphics().drawImage(bufferedImage, 0, 0, Color.WHITE, null);
 
-                        ImageIO.write(newBufferedImage, "jpg", new File("temp/" + num.i + "n.jpg"));
+                        ImageIO.write(newBufferedImage, "jpg", new File(config.tempPath()+"\\" + num.i + "n.jpg"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -399,10 +395,10 @@ class MatDeal implements Runnable {
                     }
                 } else {
                     System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-                    Mat src = Imgcodecs.imread("temp/" + num.i + "n.jpg");
+                    Mat src = Imgcodecs.imread(config.tempPath()+"\\" + num.i + "n.jpg");
                     Mat dst = new Mat();
                     Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
-                    Imgcodecs.imwrite("temp/" + num.i + ".jpg", dst);
+                    Imgcodecs.imwrite(config.tempPath()+"\\" + num.i + ".jpg", dst);
                     num.i++;
                     num.flag = false;
                     num.notify();
