@@ -7,7 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd74f68-9679-4c95-aca0-4c8b91fd8bb4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/dealWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dealWin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/setWin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unnamed.jar" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,8 +54,8 @@
       <file leaf-file-name="setWin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/setWin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="69" column="35" lean-forward="true" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
+            <state relative-caret-position="935">
+              <caret line="131" column="13" lean-forward="true" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,8 +66,8 @@
       <file leaf-file-name="chooseFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chooseFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="118" column="30" lean-forward="true" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+            <state relative-caret-position="459">
+              <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,15 +75,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dealWin.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dealWin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dealWin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="268" column="33" selection-start-line="268" selection-start-column="33" selection-end-line="268" selection-end-column="33" />
+            <state relative-caret-position="6375">
+              <caret line="375" column="36" selection-start-line="375" selection-start-column="36" selection-end-line="375" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="class#rep#0" />
-                <element signature="class#ImageDeal#0" />
               </folding>
             </state>
           </provider>
@@ -90,16 +91,16 @@
         <entry file="file://$PROJECT_DIR$/src/util/Num.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="painterr.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="painterr.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/painterr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="823">
-              <caret line="154" column="68" selection-start-line="154" selection-start-column="68" selection-end-line="154" selection-end-column="68" />
+            <state relative-caret-position="-1377">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -107,8 +108,8 @@
       <file leaf-file-name="showResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/showResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+            <state relative-caret-position="493">
+              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,8 +120,14 @@
       <file leaf-file-name="config.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+            <state>
+              <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+              <folding>
+                <element signature="e#678#679#0" expanded="true" />
+                <element signature="e#714#715#0" expanded="true" />
+                <element signature="e#960#961#0" expanded="true" />
+                <element signature="e#989#990#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,11 +165,11 @@
         <option value="$PROJECT_DIR$/src/painterr.java" />
         <option value="$PROJECT_DIR$/src/test.java" />
         <option value="$PROJECT_DIR$/src/showResult.java" />
-        <option value="$PROJECT_DIR$/src/util/config.java" />
         <option value="$PROJECT_DIR$/src/util/secDeal.java" />
         <option value="$PROJECT_DIR$/src/chooseFile.java" />
-        <option value="$PROJECT_DIR$/src/setWin.java" />
         <option value="$PROJECT_DIR$/src/dealWin.java" />
+        <option value="$PROJECT_DIR$/src/util/config.java" />
+        <option value="$PROJECT_DIR$/src/setWin.java" />
       </list>
     </option>
   </component>
@@ -192,6 +199,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,10 +218,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="textRec" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -230,7 +234,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -427,7 +430,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181321000" />
+    <option name="totallyTimeSpent" value="182311000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -444,44 +447,64 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4995958" weight="0.3297491" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32780847" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32596686" />
       <window_info anchor="right" id="Palette&#9;" order="10" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50282943" side_tool="true" weight="0.32780847" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32983023" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.30018416" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32412523" />
+      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.29834256" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3296501" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" weight="0.16814874" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" visible="true" weight="0.17784964" />
       <window_info anchor="right" id="Database" order="6" weight="0.32983023" />
       <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
       <window_info id="Favorites" order="4" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50282943" side_tool="true" weight="0.32780847" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982079" weight="0.16814874" />
+      <window_info id="Favorites" order="4" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
       <window_info anchor="right" x="189" y="121" width="1095" height="495" id="Byte Code Viewer" order="9" type="FLOATING" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3296501" />
+      <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="10" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32983023" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.2497979" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32983023" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32412523" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4995958" weight="0.3297491" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="UI Designer" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.30018416" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32780847" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Designer" order="2" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.30018416" />
       <window_info id="Image Layers" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" x="22" y="248" width="1237" height="184" id="Run" order="2" sideWeight="0.49717057" weight="0.30018416" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49552238" weight="0.2497979" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3296501" />
@@ -503,6 +526,8 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="1" sideWeight="0.50179213" side_tool="true" weight="0.19886823" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.5044776" side_tool="true" weight="0.2497979" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995958" weight="0.39964157" />
     </layout-to-restore>
   </component>
@@ -776,20 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/tess4j-3.4.6.jar!/net/sourceforge/tess4j/ITesseract.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="577">
@@ -811,37 +822,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/showResult.java">
+    <entry file="file://$PROJECT_DIR$/src/util/secDeal.java" />
+    <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+        <state relative-caret-position="170">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dealWin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6375">
+          <caret line="375" column="36" selection-start-line="375" selection-start-column="36" selection-end-line="375" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/secDeal.java">
+    <entry file="file://$PROJECT_DIR$/src/util/Num.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/showResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chooseFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="118" column="30" lean-forward="true" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+        <state relative-caret-position="459">
+          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#714#715#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#989#990#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/setWin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="69" column="35" lean-forward="true" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
+        <state relative-caret-position="935">
+          <caret line="131" column="13" lean-forward="true" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -850,27 +892,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/painterr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="154" column="68" selection-start-line="154" selection-start-column="68" selection-end-line="154" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Num.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dealWin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="268" column="33" selection-start-line="268" selection-start-column="33" selection-end-line="268" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#rep#0" />
-            <element signature="class#ImageDeal#0" />
-          </folding>
+        <state relative-caret-position="-1377">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
         </state>
       </provider>
     </entry>

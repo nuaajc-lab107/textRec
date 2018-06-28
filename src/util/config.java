@@ -4,8 +4,8 @@ public class config {
 
     static String inputPath = "";
     static String exopPath = "D:\\textRec";
-    static String imopPath = "D:\\textRec\\err";
-    static String tempPath = "D:\\textRec\\temp";
+    static String imopPath = exopPath + "\\err";
+    static String tempPath = exopPath + "\\temp";
     static int flag = 1;
 
     public static String getInputPath() {
@@ -29,7 +29,7 @@ public class config {
     }
 
     public static void setImopPath(String imoppath) {
-        inputPath = imoppath;
+        imopPath = imoppath;
     }
 
     public static String tempPath(){
@@ -42,5 +42,9 @@ public class config {
 
     public static void setFlag(int f){
         flag = f;
+    }
+
+    public static void setTempPath(String src){
+        tempPath = src;
     }
 }

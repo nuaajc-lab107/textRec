@@ -102,6 +102,7 @@ public class setWin extends JFrame implements ActionListener {
             int result = exopChose.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) ;
             exopJF.setText(exopChose.getSelectedFile().getAbsolutePath());
+            imopJF.setText(exopChose.getSelectedFile().getAbsolutePath()+"\\err");
         }else if (source == imopJB){
             int result = imopChose.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) ;
@@ -114,7 +115,21 @@ public class setWin extends JFrame implements ActionListener {
             this.hide();
         }else if (source == sure){
             config.setExopPath(exopJF.getText());
-            config.setExopPath(imopJF.getText());
+            config.setImopPath(imopJF.getText());
+            config.setTempPath(exopJF.getText()+"\\temp");
+            File exop = new File(config.getExopPath());
+            File imop = new File(config.getImopPath());
+            File temp = new File(config.tempPath());
+            if (!exop.exists()){
+                exop.mkdirs();
+                imop.mkdirs();
+                temp.mkdirs();
+            }else if (!imop.exists()){
+                imop.mkdirs();
+                temp.mkdirs();
+            }else if (!temp.exists()){
+                temp.mkdirs();
+            }
             this.hide();
         }
     }
