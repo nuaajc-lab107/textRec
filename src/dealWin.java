@@ -33,7 +33,7 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
     JButton allBT = new JButton("取消");
     JTextArea txtlog = new JTextArea();
     JScrollPane jsp = new JScrollPane(txtlog);
-    JProgressBar progressBar = new JProgressBar(0, 100);
+    JProgressBar progressBar = new JProgressBar(0, config.getNumber()*2);
     String imageFile = config.getInputPath() + "\\";
     String filepath = config.getExopPath() + "\\fin.xls";
     HSSFWorkbook workbook = new HSSFWorkbook();
@@ -97,7 +97,7 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
         b.start();
         c.start();
 
-        while (progressBar.getValue() == 100) {
+        while (progressBar.getValue() == config.getNumber()*2) {
             a.destroy();
             b.destroy();
             c.destroy();
@@ -110,7 +110,7 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
     public void stateChanged(ChangeEvent e) {
         if (progressBar.getValue() == 100) {
             allBT.setText("查看结果");
-            for (int i = 1; i <= 51; i++) {
+            for (int i = 1; i <= config.getNumber()+1; i++) {
 
                 FileOutputStream out = null;
                 try {
@@ -177,7 +177,7 @@ class dorec {
         ITesseract instance = new Tesseract();
         instance.setLanguage("eng");
 
-        for (int i = 1; i <= 50; i++) {
+        for (int i = 1; i <= config.getNumber(); i++) {
             synchronized (synObj) {
                 while (flag != 1) {
                     synObj.wait();
@@ -216,7 +216,7 @@ class dorec {
     public void nameRec(Num num, String path) throws InterruptedException {
         ITesseract instance = new Tesseract();
         instance.setLanguage("chi_sim");
-        for (int i = 1; i <= 50; i++) {
+        for (int i = 1; i <= config.getNumber(); i++) {
             synchronized (synObj) {
                 while (flag != 2) {
                     synObj.wait();
@@ -351,7 +351,7 @@ class ImageDeal implements Runnable {
 
     @Override
     public void run() {
-        while (num.i <= 50) {
+        while (num.i <= config.getNumber()) {
             synchronized (num) {
                 if (num.flag) {
                     try {
@@ -362,7 +362,7 @@ class ImageDeal implements Runnable {
                     try {
                         BufferedImage bufferedImage;
 
-                        bufferedImage = ImageIO.read(new File(path + num.i + ".png"));
+                        bufferedImage = ImageIO.read(new File(config.tempPath()+"\\" + num.i + ".png"));
 
                         BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
                                 bufferedImage.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -396,7 +396,7 @@ class MatDeal implements Runnable {
 
     @Override
     public void run() {
-        while (num.i <= 50) {
+        while (num.i <= config.getNumber()) {
             synchronized (num) {
                 if (!num.flag) {
                     try {

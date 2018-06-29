@@ -1,5 +1,6 @@
 import util.LayoutUtil;
 import util.Num;
+import util.ReadImg;
 import util.config;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 public class chooseFile extends JFrame implements ActionListener {
 
@@ -80,6 +82,13 @@ public class chooseFile extends JFrame implements ActionListener {
                 } else {
 
                     int y = JOptionPane.showConfirmDialog(null, "您选择的目录是：" + imageFile, "", JOptionPane.YES_NO_OPTION);
+
+                    try {
+                        util.ReadImg.writeIO(new File(imageFile),0);
+                        config.setNumber(ReadImg.i);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
 
                     try {
                         imageDeal.t.join();

@@ -7,6 +7,7 @@ public class config {
     static String imopPath = exopPath + "\\err";
     static String tempPath = exopPath + "\\temp";
     static int flag = 1;
+    static int number = 0;
 
     public static String getInputPath() {
         return inputPath;
@@ -46,5 +47,13 @@ public class config {
 
     public static void setTempPath(String src){
         tempPath = src;
+    }
+
+    public static int getNumber(){
+        return number;
+    }
+
+    public static void setNumber(int number) {
+        config.number = number;
     }
 }
