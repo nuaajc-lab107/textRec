@@ -9,7 +9,6 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import sun.net.www.protocol.http.HttpURLConnection;
 import util.LayoutUtil;
 import util.Num;
 import util.config;
@@ -108,7 +107,7 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        if (progressBar.getValue() == 100) {
+        if (progressBar.getValue() == config.getNumber() * 2) {
             allBT.setText("查看结果");
             for (int i = 1; i <= config.getNumber()+1; i++) {
 
