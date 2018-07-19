@@ -96,7 +96,7 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
         b.start();
         c.start();
 
-        while (progressBar.getValue() == config.getNumber()*2) {
+        while (progressBar.getValue() == 100) {
             a.destroy();
             b.destroy();
             c.destroy();
@@ -107,7 +107,7 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        if (progressBar.getValue() == config.getNumber() * 2) {
+        if (progressBar.getValue() == config.getNumber()*2) {
             allBT.setText("查看结果");
             for (int i = 1; i <= config.getNumber()+1; i++) {
 
@@ -186,17 +186,21 @@ class dorec {
 
                     bufferedImage = ImageIO.read(new File(config.tempPath()+"\\" + i + ".jpg"));
 
-                    Rectangle rect = new Rectangle(0, 0, 450, 40);
+                    Rectangle rect = new Rectangle(125, 0, 450, 40);
                     String result = instance.doOCR(bufferedImage, rect);
 
                     String numfi, numlast;
 
                     if (result.contains(":")) {
-                        numfi = result.substring(14);
-                        num.numarr[i] = numfi;
+                        int start = result.indexOf(':');
+                        numfi = result.substring(start + 1);
+                        numlast = fix.fixnum(numfi);
+                        num.numarr[i] = numlast;
                         useful = true;
                     } else {
-                        numlast = "error! picture wrong";
+                        BufferedImage imgerr = ImageIO.read(new File(config.getInputPath() + "\\" + i +".PNG"));
+                        ImageIO.write(imgerr,"png", new File(config.getImopPath() + "\\" + i + ".PNG"));
+                        numlast = "error! picture wrong\n";
                         num.numarr[i] = numlast;
                         useful = false;
                     }
@@ -232,18 +236,23 @@ class dorec {
                         String str = result.replace(" 二 ", ":");
                         String stro = str.replace("二 ", ":");
 
-                        /*System.out.print(result);*/
-
                         String name, namelast;
 
                         if (stro.contains("公司")) {
                             int start = stro.indexOf(':');
                             name = stro.substring(start + 1);
-                            namelast = fix.fixnum(name);
+                            if (i < 20){
+                                namelast = fix.fixname_ONE(name);
+                            }else {
+                                namelast = fix.fixname_TWO(name);
+                            }
                             num.namearr[i] = namelast;
                         } else {
-                            namelast = "error! picture wrong";
+                            BufferedImage imgerr = ImageIO.read(new File(config.getInputPath() + "\\" + i +".PNG"));
+                            ImageIO.write(imgerr,"png", new File(config.getImopPath() + "\\" + i + ".PNG"));
+                            namelast = "error! picture wrong\n";
                             num.namearr[i] = namelast;
+                            num.numarr[i] = namelast;
                             num.exp[num.j] = i;
                             num.j++;
                         }
@@ -258,7 +267,7 @@ class dorec {
                     flag = 3;
                     synObj.notifyAll();
                 }else {
-                    num.namearr[i] = "error! picture wrong";
+                    num.namearr[i] = "error! picture wrong\n";
                     num.exp[num.j] = i;
                     num.j++;
                     num.i = i;
@@ -361,7 +370,7 @@ class ImageDeal implements Runnable {
                     try {
                         BufferedImage bufferedImage;
 
-                        bufferedImage = ImageIO.read(new File(config.tempPath()+"\\" + num.i + ".png"));
+                        bufferedImage = ImageIO.read(new File(path + num.i + ".png"));
 
                         BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
                                 bufferedImage.getHeight(), BufferedImage.TYPE_INT_RGB);

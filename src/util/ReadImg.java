@@ -20,7 +20,7 @@ public class ReadImg {
                 if (las.contains("png")) {
                     String str1 = las.replace("png", "");
                     name = str1 + ".png";
-                    File output = new File(config.getImopPath()+"\\"+name);
+                    File output = new File(config.getInputPath()+"\\"+name);
                     InputStream is = new FileInputStream(f);
                     OutputStream os = new FileOutputStream(output);
                     byte[] flush = new byte[1024];

@@ -18,7 +18,7 @@ public class setWin extends JFrame implements ActionListener {
 
     JLabel imopJL = new JLabel("误差图片输出位置:  ");
     JFileChooser imopChose = new JFileChooser();
-    JTextField imopJF = new JTextField(config.getExopPath());
+    JTextField imopJF = new JTextField(config.getImopPath());
     JButton imopJB = new JButton("...");
 
     JButton cancel = new JButton("取消");
@@ -73,7 +73,7 @@ public class setWin extends JFrame implements ActionListener {
             tens.setSelected(true);
         }
 
-        LayoutUtil.add(p,GridBagConstraints.BOTH,GridBagConstraints.CENTER,1,1,0,5,8,1,ip1);
+        //LayoutUtil.add(p,GridBagConstraints.BOTH,GridBagConstraints.CENTER,1,1,0,5,8,1,ip1);
 
         getContentPane().add(p, BorderLayout.CENTER);
 
@@ -120,11 +120,11 @@ public class setWin extends JFrame implements ActionListener {
             File exop = new File(config.getExopPath());
             File imop = new File(config.getImopPath());
             File temp = new File(config.tempPath());
-            if (!exop.exists()){
+            if (!exop.exists()) {
                 exop.mkdirs();
                 imop.mkdirs();
                 temp.mkdirs();
-            }else if (!imop.exists()){
+            } else if (!imop.exists()) {
                 imop.mkdirs();
                 temp.mkdirs();
             }else if (!temp.exists()){

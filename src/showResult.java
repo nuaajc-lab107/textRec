@@ -73,7 +73,15 @@ public class showResult extends JFrame implements ActionListener {
         Object source = e.getSource();
         if (source == imJB){
             if (nu.exp[0] != 0) {
-                new painterr(imageFile + "\\", nu.exp);
+                try {
+                    painterr win = new painterr(nu);
+                    win.setBounds(10,10,900,900);
+                    win.setResizable(false);
+                    win.setTitle("存疑图片分析");
+                    win.show();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
             else{
                 JOptionPane.showMessageDialog(this,"本次识别很完美，\n没有存疑图片");

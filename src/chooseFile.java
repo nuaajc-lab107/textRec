@@ -59,6 +59,13 @@ public class chooseFile extends JFrame implements ActionListener {
             if (result == JFileChooser.APPROVE_OPTION) ;
             inputJF.setText(chooserInput.getSelectedFile().getAbsolutePath());
             config.setInputPath(inputJF.getText());
+            String imageFile = config.getInputPath() + "\\";
+            try {
+                ReadImg.writeIO(new File(imageFile),0);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            config.setNumber(ReadImg.i);
         } else if (source == next1) {
             String imageFile = config.getInputPath() + "\\";
             ImageDeal imageDeal = new ImageDeal(nu, imageFile);
@@ -82,13 +89,6 @@ public class chooseFile extends JFrame implements ActionListener {
                 } else {
 
                     int y = JOptionPane.showConfirmDialog(null, "您选择的目录是：" + imageFile, "", JOptionPane.YES_NO_OPTION);
-
-                    try {
-                        util.ReadImg.writeIO(new File(imageFile),0);
-                        config.setNumber(ReadImg.i);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
 
                     try {
                         imageDeal.t.join();
