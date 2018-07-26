@@ -79,7 +79,7 @@ public class showResult extends JFrame implements ActionListener {
                     win.setResizable(false);
                     win.setTitle("存疑图片分析");
                     win.show();
-                } catch (IOException e1) {
+                } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }

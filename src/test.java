@@ -1,9 +1,10 @@
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class test extends JFrame {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
         try {
             UIManager.setLookAndFeel(lookAndFeel);
@@ -21,7 +22,6 @@ public class test extends JFrame {
         window1.setBounds(500, 300, 700, 500);
         window1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         window1.show();
-
     }
 
 }
