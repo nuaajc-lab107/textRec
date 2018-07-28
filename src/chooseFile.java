@@ -61,7 +61,7 @@ public class chooseFile extends JFrame implements ActionListener {
             config.setInputPath(inputJF.getText());
             String imageFile = config.getInputPath() + "\\";
             try {
-                ReadImg.writeIO(new File(imageFile),0);
+                ReadImg.writeIO(new File(imageFile), 0);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

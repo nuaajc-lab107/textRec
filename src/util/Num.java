@@ -5,7 +5,7 @@ public class Num {
     public boolean flag = false;
     public int who = 1;
 
-    public  int[] exp = new int[10];
+    public int[] exp = new int[10];
     public int j = 0;
 
     public String[] numarr = new String[70];

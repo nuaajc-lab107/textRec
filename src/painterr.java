@@ -15,8 +15,10 @@ public class painterr extends JFrame implements ActionListener {
     JButton sure = new JButton("确定");
     ImageIcon sun = new ImageIcon("img/iconsun.png");
     JButton shun = new JButton(sun);
-    JTextField nameJF = new JTextField();
-    JTextField numJF = new JTextField();
+    //JTextField nameJF = new JTextField();
+    //JTextField numJF = new JTextField();
+    JComboBox nameJCB = new JComboBox();
+    JComboBox numJCB = new JComboBox();
     JLabel nameJL = new JLabel("企业名称");
     JLabel numJL = new JLabel("企业注册号");
 
@@ -30,16 +32,21 @@ public class painterr extends JFrame implements ActionListener {
     public painterr(Num nu) throws Exception {
         this.nu = nu;
         image = imgResize.remin(900, 750, config.getInputPath() + "\\" + nu.exp[i] + ".png");
+        //image = ImageIO.read(new File(config.getInputPath() + "\\" + nu.exp[i] + ".png"));
+
 
         getContentPane().add(new printImg(), BorderLayout.CENTER);
 
         JPanel dp = new JPanel();
         dp.setLayout(new GridBagLayout());
 
+        nameJCB.setEditable(true);
+        numJCB.setEditable(true);
+
         LayoutUtil.add(dp, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 0, 0, 1, 1, nameJL, new Insets(10, 10, 10, 10));
-        LayoutUtil.add(dp, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 1, 0, 3, 1, nameJF, new Insets(10, 10, 10, 10));
+        LayoutUtil.add(dp, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 1, 0, 3, 1, nameJCB, new Insets(10, 10, 10, 10));
         LayoutUtil.add(dp, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 5, 0, 1, 1, numJL, new Insets(10, 10, 10, 10));
-        LayoutUtil.add(dp, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 6, 0, 3, 1, numJF, new Insets(10, 10, 10, 10));
+        LayoutUtil.add(dp, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 6, 0, 3, 1, numJCB, new Insets(10, 10, 10, 10));
 
         LayoutUtil.add(dp, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 3, 1, 1, 1, sure, new Insets(10, 10, 10, 10));
         LayoutUtil.add(dp, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 8, 1, 1, 1, next, new Insets(10, 10, 10, 10));
@@ -51,8 +58,18 @@ public class painterr extends JFrame implements ActionListener {
         next.addActionListener(this);
         shun.addActionListener(this);
 
-        nameJF.setText("");
-        numJF.setText("");
+        String[] resultname = lnstance.doOCR(config.getInputPath() + "\\" + nu.exp[i] + ".png",1);
+        String[] resultnum = lnstance.doOCR(config.getInputPath() + "\\" + nu.exp[i] + ".png",0);
+        for (int i = 0; i < resultname.length;i++){
+            if (resultname[i] != null){
+                nameJCB.addItem(resultname[i]);
+            }
+        }
+        for (int i = 0; i < resultnum.length;i++){
+            if (resultnum[i] != null){
+                numJCB.addItem(resultnum[i]);
+            }
+        }
     }
 
     @Override
@@ -61,15 +78,16 @@ public class painterr extends JFrame implements ActionListener {
 
         if (source == sure) {
             //System.out.println(nu.exp[i]);
-            if (nu.exp[i+1] != 0) {
-                if (nameJF.getText().equals("")) {
+            outer:
+            if (nu.exp[i] != 0) {
+                if (nameJCB.getSelectedItem().equals("")) {
                     JOptionPane.showMessageDialog(new JFrame(), "请输入企业名称!", "warning", JOptionPane.WARNING_MESSAGE);
-                } else if (numJF.getText().equals("")) {
+                } else if (numJCB.getSelectedItem().equals("")) {
                     JOptionPane.showMessageDialog(new JFrame(), "请输入企业注册号!", "warning", JOptionPane.WARNING_MESSAGE);
                 } else {
 
-                    String numlast = numJF.getText();
-                    String namelast = nameJF.getText();
+                    String numlast = numJCB.getSelectedItem().toString();
+                    String namelast = nameJCB.getSelectedItem().toString();
                     try {
                         FileInputStream fileInput = new FileInputStream(filepath);
                         HSSFWorkbook workbook = new HSSFWorkbook(fileInput);
@@ -91,17 +109,45 @@ public class painterr extends JFrame implements ActionListener {
                         e1.printStackTrace();
                     }
                     i++;
-                    String path = config.getInputPath() + "\\" + nu.exp[i] + ".png";
+                    nameJCB.removeAllItems();
+                    numJCB.removeAllItems();
+                    String[] resultname = new String[10];
                     try {
-                        image = imgResize.remin(900, 750, path);
+                        resultname = lnstance.doOCR(config.getInputPath() + "\\" + nu.exp[i] + ".png",1);
+                        String[] resultnum = lnstance.doOCR(config.getInputPath() + "\\" + nu.exp[i] + ".png",0);
+                        for (int i = 0; i < resultname.length;i++){
+                            if (resultname[i] != null){
+                                nameJCB.addItem(resultname[i]);
+                            }
+                        }
+                        for (int i = 0; i < resultnum.length;i++){
+                            if (resultnum[i] != null){
+                                numJCB.addItem(resultnum[i]);
+                            }
+                        }
                     } catch (IOException e1) {
                         e1.printStackTrace();
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
                     }
-                    nameJF.setText("");
-                    numJF.setText("");
-                    repaint();
+
+                    if (nu.exp[i] == 0){
+                        JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                        try {
+                            image = ImageIO.read(new File("img/none.jpg"));
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        repaint();
+                    }else if (nu.exp[i] != 0){
+                        String path = config.getInputPath() + "\\" + nu.exp[i] + ".png";
+
+                        try {
+                            image = imgResize.remin(900, 750, path);
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+
+                        repaint();
+                    }
                 }
             } else {
                 JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
@@ -114,7 +160,9 @@ public class painterr extends JFrame implements ActionListener {
             }
         } else if (source == next) {
             //System.out.println(nu.exp[i]);
-            if (nu.exp[i+1] != 0) {
+            outer:
+            if (nu.exp[i] != 0) {
+                //System.out.println(i);
                 try {
                     FileInputStream fileInput = new FileInputStream(filepath);
                     HSSFWorkbook workbook = new HSSFWorkbook(fileInput);
@@ -142,16 +190,47 @@ public class painterr extends JFrame implements ActionListener {
                     e1.printStackTrace();
                 }
                 i++;
-                String path = config.getInputPath() + "\\" + nu.exp[i] + ".png";
+                nameJCB.removeAllItems();
+                numJCB.removeAllItems();
+                String[] resultname = new String[10];
                 try {
-                    image = imgResize.remin(900, 750, path);
+                    resultname = lnstance.doOCR(config.getInputPath() + "\\" + nu.exp[i] + ".png",1);
+                    String[] resultnum = lnstance.doOCR(config.getInputPath() + "\\" + nu.exp[i] + ".png",0);
+                    for (int i = 0; i < resultname.length;i++)
+                    {
+                        if (resultname[i] != null){
+                            nameJCB.addItem(resultname[i]);
+                        }
+                    }
+                    for (int i = 0; i < resultnum.length;i++)
+                    {
+                        if (resultnum[i] != null){
+                            numJCB.addItem(resultnum[i]);
+                        }
+                    }
                 } catch (IOException e1) {
                     e1.printStackTrace();
-                } catch (Exception e1) {
-                    e1.printStackTrace();
                 }
-                repaint();
+                if (nu.exp[i] == 0){
+                    JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
+                    try {
+                        image = ImageIO.read(new File("img/none.jpg"));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    repaint();
+                }else {
+                    String path = config.getInputPath() + "\\" + nu.exp[i] + ".png";
+                    try {
+                        image = imgResize.remin(900, 750, path);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
 
+                    repaint();
+                }
             } else {
                 JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
                 try {
@@ -162,7 +241,7 @@ public class painterr extends JFrame implements ActionListener {
                 repaint();
             }
         } else if (source == shun) {
-            if (nu.exp[i+1] != 0) {
+            if (nu.exp[i + 1] != 0) {
                 String path = config.getInputPath() + "\\" + nu.exp[i - 1] + ".png";
                 try {
                     image = imgRotate.imro(j, path);
@@ -171,7 +250,7 @@ public class painterr extends JFrame implements ActionListener {
                 }
                 repaint();
                 j++;
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(new JFrame(), "已经是最后一张了", "warning", JOptionPane.WARNING_MESSAGE);
                 try {
                     image = ImageIO.read(new File("img/none.jpg"));

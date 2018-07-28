@@ -26,13 +26,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class dealWin extends JFrame implements ChangeListener ,ActionListener {
+public class dealWin extends JFrame implements ChangeListener, ActionListener {
 
     Num nu = new Num();
     JButton allBT = new JButton("取消");
     JTextArea txtlog = new JTextArea();
     JScrollPane jsp = new JScrollPane(txtlog);
-    JProgressBar progressBar = new JProgressBar(0, config.getNumber()*2);
+    JProgressBar progressBar = new JProgressBar(0, config.getNumber() * 2);
     String imageFile = config.getInputPath() + "\\";
     String filepath = config.getExopPath() + "\\fin.xls";
     HSSFWorkbook workbook = new HSSFWorkbook();
@@ -107,9 +107,9 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
 
     @Override
     public void stateChanged(ChangeEvent e) {
-        if (progressBar.getValue() == config.getNumber()*2) {
+        if (progressBar.getValue() == config.getNumber() * 2) {
             allBT.setText("查看结果");
-            for (int i = 1; i <= config.getNumber()+1; i++) {
+            for (int i = 1; i <= config.getNumber() + 1; i++) {
 
                 FileOutputStream out = null;
                 try {
@@ -133,15 +133,15 @@ public class dealWin extends JFrame implements ChangeListener ,ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source == allBT){
-            if (allBT.getText().equals("取消")){
+        if (source == allBT) {
+            if (allBT.getText().equals("取消")) {
                 int y = JOptionPane.showConfirmDialog(this, "确定要退出吗？", "", JOptionPane.YES_NO_OPTION);
 
                 if (y == 0)
                     System.exit(0);
-            }else if (allBT.getText().equals("查看结果")){
+            } else if (allBT.getText().equals("查看结果")) {
                 this.hide();
-                new showResult(nu,imageFile);
+                new showResult(nu, imageFile);
             }
         }
     }
@@ -184,7 +184,7 @@ class dorec {
                 try {
                     BufferedImage bufferedImage;
 
-                    bufferedImage = ImageIO.read(new File(config.tempPath()+"\\" + i + ".jpg"));
+                    bufferedImage = ImageIO.read(new File(config.tempPath() + "\\" + i + ".jpg"));
 
                     Rectangle rect = new Rectangle(125, 0, 450, 40);
                     String result = instance.doOCR(bufferedImage, rect);
@@ -198,8 +198,8 @@ class dorec {
                         num.numarr[i] = numlast;
                         useful = true;
                     } else {
-                        BufferedImage imgerr = ImageIO.read(new File(config.getInputPath() + "\\" + i +".PNG"));
-                        ImageIO.write(imgerr,"png", new File(config.getImopPath() + "\\" + i + ".PNG"));
+                        BufferedImage imgerr = ImageIO.read(new File(config.getInputPath() + "\\" + i + ".PNG"));
+                        ImageIO.write(imgerr, "png", new File(config.getImopPath() + "\\" + i + ".PNG"));
                         numlast = "error! picture wrong\n";
                         num.numarr[i] = numlast;
                         useful = false;
@@ -241,15 +241,15 @@ class dorec {
                         if (stro.contains("公司")) {
                             int start = stro.indexOf(':');
                             name = stro.substring(start + 1);
-                            if (i < 20){
+                            if (i < 20) {
                                 namelast = fix.fixname_ONE(name);
-                            }else {
+                            } else {
                                 namelast = fix.fixname_TWO(name);
                             }
                             num.namearr[i] = namelast;
                         } else {
-                            BufferedImage imgerr = ImageIO.read(new File(config.getInputPath() + "\\" + i +".PNG"));
-                            ImageIO.write(imgerr,"png", new File(config.getImopPath() + "\\" + i + ".PNG"));
+                            BufferedImage imgerr = ImageIO.read(new File(config.getInputPath() + "\\" + i + ".PNG"));
+                            ImageIO.write(imgerr, "png", new File(config.getImopPath() + "\\" + i + ".PNG"));
                             namelast = "error! picture wrong\n";
                             num.namearr[i] = namelast;
                             num.numarr[i] = namelast;
@@ -266,7 +266,7 @@ class dorec {
                     num.valueb += 2;
                     flag = 3;
                     synObj.notifyAll();
-                }else {
+                } else {
                     num.namearr[i] = "error! picture wrong\n";
                     num.exp[num.j] = i;
                     num.j++;
@@ -274,7 +274,7 @@ class dorec {
                     num.valueb += 2;
                     flag = 3;
                     synObj.notifyAll();
-                    useful =true;
+                    useful = true;
                 }
             }
         }
@@ -377,7 +377,7 @@ class ImageDeal implements Runnable {
 
                         newBufferedImage.createGraphics().drawImage(bufferedImage, 0, 0, Color.WHITE, null);
 
-                        ImageIO.write(newBufferedImage, "jpg", new File(config.tempPath()+"\\" + num.i + "n.jpg"));
+                        ImageIO.write(newBufferedImage, "jpg", new File(config.tempPath() + "\\" + num.i + "n.jpg"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -413,10 +413,10 @@ class MatDeal implements Runnable {
                     }
                 } else {
                     System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-                    Mat src = Imgcodecs.imread(config.tempPath()+"\\" + num.i + "n.jpg");
+                    Mat src = Imgcodecs.imread(config.tempPath() + "\\" + num.i + "n.jpg");
                     Mat dst = new Mat();
                     Imgproc.threshold(src, dst, 110.0, 265.0, Imgproc.THRESH_BINARY);
-                    Imgcodecs.imwrite(config.tempPath()+"\\" + num.i + ".jpg", dst);
+                    Imgcodecs.imwrite(config.tempPath() + "\\" + num.i + ".jpg", dst);
                     num.i++;
                     num.flag = false;
                     num.notify();

@@ -38,14 +38,14 @@ public class showResult extends JFrame implements ActionListener {
         //p.setBorder(BorderFactory.createEtchedBorder());
         p.setLayout(new GridBagLayout());
 
-        LayoutUtil.add(p,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,0,1,1,new JLabel("本次共识别图片 50 张"));
-        LayoutUtil.add(p,GridBagConstraints.NONE,GridBagConstraints.CENTER,0,0,0,1,1,1,new JLabel("其中存疑 "+ x +" 张"));
+        LayoutUtil.add(p, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 0, 0, 1, 1, new JLabel("本次共识别图片 50 张"));
+        LayoutUtil.add(p, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 0, 1, 1, 1, new JLabel("其中存疑 " + x + " 张"));
 
         container.add(p, BorderLayout.CENTER);
 
         JPanel pd = new JPanel();
         //pd.setBorder(BorderFactory.createLoweredBevelBorder());
-        pd.setLayout(new GridLayout(2,3,10,5));
+        pd.setLayout(new GridLayout(2, 3, 10, 5));
 
         pd.add(fiJB);
         pd.add(exJB);
@@ -54,7 +54,7 @@ public class showResult extends JFrame implements ActionListener {
         pd.add(reJB);
         pd.add(fin);
 
-        container.add(pd,BorderLayout.SOUTH);
+        container.add(pd, BorderLayout.SOUTH);
 
         jf.setTitle("文字提取1.0 - 结果");
         jf.setBounds(500, 300, 700, 500);
@@ -71,36 +71,35 @@ public class showResult extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source == imJB){
+        if (source == imJB) {
             if (nu.exp[0] != 0) {
                 try {
                     painterr win = new painterr(nu);
-                    win.setBounds(10,10,900,900);
+                    win.setBounds(10, 10, 900, 900);
                     win.setResizable(false);
                     win.setTitle("存疑图片分析");
                     win.show();
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
+            } else {
+                JOptionPane.showMessageDialog(this, "本次识别很完美，\n没有存疑图片");
             }
-            else{
-                JOptionPane.showMessageDialog(this,"本次识别很完美，\n没有存疑图片");
-            }
-        }else if (source == exJB){
+        } else if (source == exJB) {
             try {
                 Desktop.getDesktop().open(new File(config.getExopPath() + "\\fin.xls"));
             } catch (IOException o) {
                 o.printStackTrace();
             }
-        }else if (source == fiJB){
+        } else if (source == fiJB) {
             try {
                 Desktop.getDesktop().open(new File(config.getExopPath()));
             } catch (IOException o) {
                 o.printStackTrace();
             }
-        }else if (source == reJB){
+        } else if (source == reJB) {
             int y = JOptionPane.showConfirmDialog(null, "您将关闭当前任务重新开始\n确定重新开始吗？", "", JOptionPane.YES_NO_OPTION);
-            if (y == 0){
+            if (y == 0) {
                 this.hide();
                 chooseFile window1 = new chooseFile();
                 window1.setTitle("文字提取1.0");
@@ -108,7 +107,7 @@ public class showResult extends JFrame implements ActionListener {
                 window1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                 window1.show();
             }
-        }else if (source == fin){
+        } else if (source == fin) {
             delAllFile(config.tempPath());
             System.exit(0);
         }

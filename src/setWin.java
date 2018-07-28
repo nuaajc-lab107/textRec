@@ -56,10 +56,10 @@ public class setWin extends JFrame implements ActionListener {
         LayoutUtil.add(p, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 1, 3, 5, 1, imopJF, new Insets(20, 10, 20, 10));
         LayoutUtil.add(p, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 7, 3, 1, 1, imopJB, new Insets(20, 10, 20, 10));
 
-        LayoutUtil.add(p,GridBagConstraints.VERTICAL,GridBagConstraints.CENTER,0,1,0,4,7,1,new JLabel());
+        LayoutUtil.add(p, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0, 1, 0, 4, 7, 1, new JLabel());
 
         JPanel ip1 = new JPanel();
-        ip1.setLayout(new GridLayout(2,0));
+        ip1.setLayout(new GridLayout(2, 0));
         ip1.setBorder(BorderFactory.createTitledBorder("存疑图片分析选项："));
 
         whic.add(tess);
@@ -67,9 +67,9 @@ public class setWin extends JFrame implements ActionListener {
         whic.add(tens);
         ip1.add(tens);
 
-        if (config.getFlag() == 1){
+        if (config.getFlag() == 1) {
             tess.setSelected(true);
-        }else if (config.getFlag() == 2){
+        } else if (config.getFlag() == 2) {
             tens.setSelected(true);
         }
 
@@ -102,21 +102,21 @@ public class setWin extends JFrame implements ActionListener {
             int result = exopChose.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) ;
             exopJF.setText(exopChose.getSelectedFile().getAbsolutePath());
-            imopJF.setText(exopChose.getSelectedFile().getAbsolutePath()+"\\err");
-        }else if (source == imopJB){
+            imopJF.setText(exopChose.getSelectedFile().getAbsolutePath() + "\\err");
+        } else if (source == imopJB) {
             int result = imopChose.showOpenDialog(this);
             if (result == JFileChooser.APPROVE_OPTION) ;
             imopJF.setText(imopChose.getSelectedFile().getAbsolutePath());
-        }else if (source == tess){
+        } else if (source == tess) {
             config.setFlag(1);
-        }else if (source == tens){
+        } else if (source == tens) {
             config.setFlag(2);
-        }else if (source == cancel){
+        } else if (source == cancel) {
             this.hide();
-        }else if (source == sure){
+        } else if (source == sure) {
             config.setExopPath(exopJF.getText());
             config.setImopPath(imopJF.getText());
-            config.setTempPath(exopJF.getText()+"\\temp");
+            config.setTempPath(exopJF.getText() + "\\temp");
             File exop = new File(config.getExopPath());
             File imop = new File(config.getImopPath());
             File temp = new File(config.tempPath());
@@ -127,7 +127,7 @@ public class setWin extends JFrame implements ActionListener {
             } else if (!imop.exists()) {
                 imop.mkdirs();
                 temp.mkdirs();
-            }else if (!temp.exists()){
+            } else if (!temp.exists()) {
                 temp.mkdirs();
             }
             this.hide();

@@ -4,8 +4,8 @@ public class config {
 
     static String inputPath = "";
     static String exopPath = "D:\\textRec";
-    static String imopPath = exopPath+"\\err";
-    static String tempPath = exopPath+"\\temp";
+    static String imopPath = exopPath + "\\err";
+    static String tempPath = exopPath + "\\temp";
     static int flag = 1;
     static int number = 0;
 
@@ -33,23 +33,23 @@ public class config {
         imopPath = path;
     }
 
-    public static String tempPath(){
+    public static String tempPath() {
         return tempPath;
     }
 
-    public static void setTempPath(String src){
+    public static void setTempPath(String src) {
         tempPath = src;
     }
 
-    public static int getFlag(){
+    public static int getFlag() {
         return flag;
     }
 
-    public static void setFlag(int f){
+    public static void setFlag(int f) {
         flag = f;
     }
 
-    public static int getNumber(){
+    public static int getNumber() {
         return number;
     }
 
